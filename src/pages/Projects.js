@@ -9,7 +9,7 @@ function Projects() {
           description: 'A portfolio website showcasing my projects.',
           status: 'In Progress',
           techStack: ['React', 'Tailwind CSS'],
-          image: 'saunter.png',
+          image: 'portfolio.png',
           github: 'https://github.com/stahsin00/portfolio.git'
         },
         {
@@ -24,7 +24,7 @@ function Projects() {
         {
             name: 'Saunter',
             type: 'Web',
-            description: 'An endless scrolling image gallery website meant to imitate the feeling of taking a stroll.',
+            description: 'An endless scrolling image gallery website meant to imitate the feeling of taking a stroll around the world.',
             status: 'Inactive',
             techStack: ['PHP', 'MySQL'],
             image: 'saunter.png'
@@ -34,7 +34,7 @@ function Projects() {
             type: 'Web',
             description: 'A party game that uses Dall-e\'s image generation to allow user\'s to guess the initial prompt.',
             status: 'Inactive',
-            techStack: ['React', 'Python'],
+            techStack: ['React', 'Material UI'],
             image: 'picture-chain.png',
             github: 'https://github.com/lhacks-rsmm/picturechain-frontend.git'
         },
