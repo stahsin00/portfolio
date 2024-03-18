@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.9891f866.css",
+    "main.js": "/react-gh-pages/static/js/main.88a61d0a.js",
+    "static/js/453.5858e738.chunk.js": "/react-gh-pages/static/js/453.5858e738.chunk.js",
+    "static/media/picture-chain.png": "/react-gh-pages/static/media/picture-chain.e84b98ce748ed067a4f4.png",
+    "static/media/saunter.png": "/react-gh-pages/static/media/saunter.eb3c81ee737e82f6a004.png",
+    "static/media/resume.pdf": "/react-gh-pages/static/media/resume.3658739b2b35dffa11d3.pdf",
+    "static/media/cartographer.png": "/react-gh-pages/static/media/cartographer.8300d5314e1e057cf832.png",
+    "static/media/background.png": "/react-gh-pages/static/media/background.1efd057f2395794dfd42.png",
+    "static/media/portfolio.png": "/react-gh-pages/static/media/portfolio.82e226aa6c46f3fb8a2d.png",
+    "static/media/solara.png": "/react-gh-pages/static/media/solara.32740bc368f23cf9532d.png",
+    "static/media/index.cjs": "/react-gh-pages/static/media/index.671993152dc0f6e0b17a.cjs",
+    "static/media/logo.svg": "/react-gh-pages/static/media/logo.6ce24c58023cc2f8fd88.svg",
+    "index.html": "/react-gh-pages/index.html",
+    "main.9891f866.css.map": "/react-gh-pages/static/css/main.9891f866.css.map",
+    "main.88a61d0a.js.map": "/react-gh-pages/static/js/main.88a61d0a.js.map",
+    "453.5858e738.chunk.js.map": "/react-gh-pages/static/js/453.5858e738.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9891f866.css",
+    "static/js/main.88a61d0a.js"
+  ]
+}
