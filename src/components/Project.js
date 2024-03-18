@@ -3,8 +3,8 @@ import React from 'react';
 function Project({props}) {
     console.log(props.name);
     return (
-        <div className="w-80 bg-white rounded-lg flex flex-wrap">
-            <img src={require(`../${props.image}`)} alt={props.name} className="w-80 h-64 overflow-hidden object-cover object-center" />
+        <div className="w-80 bg-white rounded-lg flex flex-wrap border border-black">
+            <img src={require(`../${props.image}`)} alt={props.name} className="w-80 h-64 rounder-t-lg overflow-hidden object-cover object-center" />
             <div className="w-80 h-64 overflow-auto">
                 <div className="p-4">
                     <h2 className="text-black text-xl font-bold mb-2">{props.name}</h2>
