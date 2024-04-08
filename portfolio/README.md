@@ -1,13 +1,3 @@
-# Overview of project
-A portfolio website showcasing some of my previous and in-progress projects.
-
-# Link to website
-https://stahsin00.github.io/portfolio
-
-# Technology stack used
-React
-Tailwind CSS
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
