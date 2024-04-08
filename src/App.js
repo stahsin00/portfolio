@@ -9,12 +9,12 @@ import { BrowserRouter, Route, Routes, } from "react-router-dom";
 function App() {
   return (
     <>
-      <BrowserRouter basename='portfolio'>
+      <BrowserRouter>
         <Nav />
         <Routes>
-            <Route path='/' element={<About />} exact/>
-            <Route path='/projects' element={<Projects />} />
-            <Route path='/resume' element={<Resume />} />
+            <Route path='/portfolio/' element={<About />} exact/>
+            <Route path='/portfolio/projects' element={<Projects />} />
+            <Route path='/portfolio/resume' element={<Resume />} />
           </Routes>
       </BrowserRouter>
       <Socials />
