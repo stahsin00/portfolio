@@ -15,7 +15,7 @@ function ProjectCard({props}) {
     }
 
     return (
-        <div className="w-120 bg-white rounded-lg flex flex-wrap border border-black">
+        <div className="w-120 bg-white rounded-lg flex flex-wrap border border-black shadow-md">
             <div className='flex justify-center w-full'>
                 <img src={require(`../${props.image}`)} alt={props.name} className="w-auto h-64 rounded-t-lg" />
             </div>

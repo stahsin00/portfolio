@@ -71,6 +71,7 @@ function Projects() {
             <div className='flex justify-center p-32 h-screen'> 
                 <img src='room-day.png' alt='pixel art of a room' className='h-full w-auto' style={{ imageRendering: 'pixelated' }} />
             </div>
+            <hr></hr>
             <div className='flex justify-center'>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-20">
                     {
