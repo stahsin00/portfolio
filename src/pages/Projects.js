@@ -67,13 +67,13 @@ function Projects() {
     ];
     
     return (
-        <>
-            <div className='flex justify-center p-32 h-screen'> 
+        <div className='w-screen px-20'>
+            <div className='flex justify-center h-screen py-20'> 
                 <img src='room-day.png' alt='pixel art of a room' className='h-full w-auto' style={{ imageRendering: 'pixelated' }} />
             </div>
             <hr></hr>
-            <div className='flex justify-center'>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-20">
+            <div className='flex justify-center w-full py-20'>
+                <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
                     {
                         projects.map((project) => (
                             <ProjectCard props={project} />
@@ -81,7 +81,7 @@ function Projects() {
                     }
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
