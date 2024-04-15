@@ -46,4 +46,5 @@ jobs:
           git config user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config user.name "${{ secrets.GIT_USER_NAME }}"
           npm ci;
+          npm run predeploy;
           npx gh-pages -d dist -t true -b gh-pages -r https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
