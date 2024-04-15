@@ -17,7 +17,7 @@ function ProjectCard({props}) {
     return (
         <div className="w-120 bg-white rounded-lg flex flex-wrap border border-black shadow-md">
             <div className='flex justify-center w-full'>
-                <img src={`/assets/${props.image}`} alt={props.name} className="w-auto h-64 rounded-t-lg" />
+                <img src={`/portfolio/assets/${props.image}`} alt={props.name} className="w-auto h-64 rounded-t-lg" />
             </div>
             <div className="w-full h-64 overflow-auto">
                 <div className="p-4">

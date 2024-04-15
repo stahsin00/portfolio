@@ -13,10 +13,10 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path='/' element={<Projects />} exact/>
-          <Route path='/about' element={<About />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/resume' element={<Resume />} />
+          <Route path='/portfolio/' element={<Projects />} exact/>
+          <Route path='/portfolio/about' element={<About />} />
+          <Route path='/portfolio/projects' element={<Projects />} />
+          <Route path='/portfolio/resume' element={<Resume />} />
         </Routes>
       </BrowserRouter>
       <Socials />

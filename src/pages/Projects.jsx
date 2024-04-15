@@ -69,7 +69,7 @@ function Projects() {
     return (
         <div className='w-screen px-20'>
             <div className='flex justify-center h-screen py-20'> 
-                <img src='/assets/room-day.png' alt='pixel art of a room' className='h-full w-auto' style={{ imageRendering: 'pixelated' }} />
+                <img src='/portfolio/assets/room-day.png' alt='pixel art of a room' className='h-full w-auto' style={{ imageRendering: 'pixelated' }} />
             </div>
             <hr></hr>
             <div className='flex justify-center w-full py-20'>
