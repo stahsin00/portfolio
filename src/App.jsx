@@ -2,9 +2,9 @@ import Nav from './components/Nav';
 import Socials from './components/Socials';
 import About from './pages/About';
 import Projects from './pages/Projects';
-import Resume from './pages/Resume';
 import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import './App.css'
+import Contact from './pages/Contact';
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
           <Route path='/portfolio/' element={<Projects />} exact/>
           <Route path='/portfolio/about' element={<About />} />
           <Route path='/portfolio/projects' element={<Projects />} />
-          <Route path='/portfolio/resume' element={<Resume />} />
+          <Route path='/portfolio/contact' element={<Contact />} />
         </Routes>
       </BrowserRouter>
       <Socials />
