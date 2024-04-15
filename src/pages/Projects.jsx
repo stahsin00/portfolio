@@ -60,7 +60,7 @@ function Projects() {
             name: 'Rover',
             type: 'Game',
             description: '2D metroidvania where the player is a robot that is exploring a new planet.',
-            status: 'In Progress',
+            status: 'Inactive',
             techStack: ['Unity', 'C#'],
             image: 'rover.png'
         }
@@ -69,14 +69,14 @@ function Projects() {
     return (
         <div className='w-screen px-20'>
             <div className='flex justify-center h-screen py-20'> 
-                <img src='room-day.png' alt='pixel art of a room' className='h-full w-auto' style={{ imageRendering: 'pixelated' }} />
+                <img src='/assets/room-day.png' alt='pixel art of a room' className='h-full w-auto' style={{ imageRendering: 'pixelated' }} />
             </div>
             <hr></hr>
             <div className='flex justify-center w-full py-20'>
                 <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
                     {
                         projects.map((project) => (
-                            <ProjectCard props={project} />
+                            <ProjectCard key={project.name} props={project} />
                         ))
                     }
                 </div>
