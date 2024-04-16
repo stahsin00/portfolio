@@ -24,7 +24,7 @@ function ProjectCard({props}) {
                     <h2 className="text-black text-xl font-bold mb-2">{props.name}</h2>
                     <hr className='p-2'></hr>
                     <p className="text-gray-700 mb-2">{props.description}</p>
-                    <div className={`${getColor(props.status)} text-white mb-2 px-1 text-sm font-bold rounded-full inline-block`}>{props.status}</div>
+                    <div className={`${getColor(props.status)} text-white mb-2 px-1 text-sm font-bold rounded-full inline-block font-arial`}>{props.status}</div>
                     <div className="text-gray-600 mb-4 text-sm font-bold">{props.techStack.join(', ')}</div>
                     <div className='flex gap-2'>
                         {props.github && (
