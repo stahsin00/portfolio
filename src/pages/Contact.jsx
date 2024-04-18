@@ -22,8 +22,8 @@ function Contact() {
     };
 
     return (
-        <div className='flex justify-center items-center w-screen h-screen'>
-            <form className="space-y-4 px-10 py-20 w-4/5 rounded-lg border border-black shadow-md" onSubmit={handleSubmit}>
+        <div className='flex gap-10 p-20 justify-center items-center w-screen h-screen'>
+            <form className="space-y-4 p-20 w-full rounded-lg border border-black shadow-md" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-black">Name</label>
                     <input type="text" name="name" id="name" required
@@ -51,6 +51,10 @@ function Contact() {
                 </div>
                 <div className='text-xs italic flex justify-center'>A form with better styling coming to a contact page near you eventually ;-;</div>
             </form>
+            <div className='w-full h-full p-20 flex flex-col justify-center items-center'>
+                <img src='/portfolio/assets/construction.png' alt='pixel art of a room' className='h-auto w-full px-20' style={{ imageRendering: 'pixelated' }} />
+                <div className="text-3xl font-bold">Form submission not implemented yet.</div>
+            </div>
         </div>
     )
 }
