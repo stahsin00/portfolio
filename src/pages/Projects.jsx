@@ -51,7 +51,7 @@ function Projects() {
         {
             name: 'Cartographer',
             type: 'Game',
-            description: 'World generation using perlin noise to create a variety of landscapes for players to explore and collect resources.',
+            description: 'World generation using perlin noise to create a variety of landscapes for players to explore and collect resources. (Image rendering above is a temporary placeholder to show model.)',
             status: 'In Progress',
             techStack: ['Unity', 'C#'],
             image: 'cartographer.png'
@@ -67,13 +67,15 @@ function Projects() {
     ];
     
     return (
-        <div className='w-screen px-20'>
-            <div className='flex justify-center h-screen py-20'> 
+        <div>
+            <div className='flex justify-center h-screen w-full py-20'> 
                 <img src='/portfolio/assets/room-day.png' alt='pixel art of a room' className='h-full w-auto' style={{ imageRendering: 'pixelated' }} />
             </div>
-            <hr></hr>
-            <div className='flex justify-center w-full py-20'>
-                <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
+            <div className='w-full px-20'>
+                <hr></hr>
+            </div>
+            <div className='flex justify-center py-20'>
+                <div className='flex flex-wrap justify-start gap-4 sm:w-11/12 md:w-10/12 lg:w-4/5'>
                     {
                         projects.map((project) => (
                             <ProjectCard key={project.name} props={project} />
