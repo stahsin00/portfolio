@@ -42,6 +42,7 @@ jobs:
       - name: Run deploy
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
         run: | 
           git config user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config user.name "${{ secrets.GIT_USER_NAME }}"
