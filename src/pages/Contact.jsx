@@ -28,6 +28,7 @@ function Contact() {
         try {
             const data = {name: formData.name, email: formData.email, message: formData.message};
             const apiUrl = `${import.meta.env.VITE_API_URL}/contact/submit`;
+            console.log(apiUrl);
         
             const response = await fetch(apiUrl, {
                 method: 'POST',
