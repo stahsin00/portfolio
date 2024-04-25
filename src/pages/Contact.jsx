@@ -1,7 +1,12 @@
 import React, {useState} from 'react';
+import Spinner from '../components/Spinner';
 
 function Contact() {
+    const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
+
+    const [loading, setLoading] = useState(false);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -16,14 +21,42 @@ function Contact() {
         }));
     };
     
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        setError("havent set up backend yet lol");
+        setLoading(true);
+        
+        try {
+            const data = {name: formData.name, email: formData.email, message: formData.message};
+            const apiUrl = `${import.meta.env.VITE_API_URL}/contact/submit`;
+        
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+        
+            if (response.ok) {
+                setSuccess("Message sent.");
+                setFormData({
+                    name: '',
+                    email: '',
+                    message: ''
+                });
+            } else {
+                setError("Unable to send message, try again later.");
+            }
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <div className='flex gap-10 p-20 justify-center items-center w-screen h-screen'>
-            <form className="space-y-4 p-20 w-full rounded-lg border border-black shadow-md" onSubmit={handleSubmit}>
+            <form className="space-y-4 p-20 w-full max-h-full rounded-lg border border-black shadow-md overflow-x-auto overflow-y-auto" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-black">Name</label>
                     <input type="text" name="name" id="name" required
@@ -42,18 +75,25 @@ function Contact() {
                         className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                         value={formData.message} onChange={handleChange}></textarea>
                 </div>
-                <div className={`text-xs text-red-500 flex justify-center ${error? 'visible' : 'invisible'}`}>{error}</div>
                 <div className='flex justify-center'>
                     <button type="submit"
                         className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-teal-600 hover:bg-teal-700">
                         Send
                     </button>
                 </div>
-                <div className='text-xs italic flex justify-center'>A form with better styling coming to a contact page near you eventually ;-;</div>
+                <div className={`text-xs flex justify-center h-6 ${(error || success || loading)? 'visible' : 'invisible'}`}>
+                    {loading ? 
+                        <Spinner size={"24px"} /> 
+                        : 
+                        error ? 
+                            <div className={`text-red-500 italic`}>{error}</div>
+                            :
+                            <div className={`text-green-500`}>{success}</div>
+                    }
+                </div>
             </form>
-            <div className='w-full h-full p-20 flex flex-col justify-center items-center'>
-                <img src='/portfolio/assets/construction.png' alt='pixel art of a room' className='h-auto w-full px-20' style={{ imageRendering: 'pixelated' }} />
-                <div className="text-3xl font-bold">Form submission not implemented yet.</div>
+            <div className='w-full h-full p-10 flex flex-col justify-center items-center'>
+                <img src='/portfolio/assets/girl-on-desk.png' alt='pixel art of a girl at a desk' className='h-auto w-full px-20' style={{ imageRendering: 'pixelated' }} />
             </div>
         </div>
     )

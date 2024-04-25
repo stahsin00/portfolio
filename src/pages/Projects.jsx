@@ -68,14 +68,14 @@ function Projects() {
     
     return (
         <div>
-            <div className='flex justify-center h-screen w-full py-20'> 
-                <img src='/portfolio/assets/room-day.png' alt='pixel art of a room' className='h-full w-auto' style={{ imageRendering: 'pixelated' }} />
+            <div className='flex justify-center md:h-screen w-full py-20'> 
+                <img src='/portfolio/assets/room-day.png' alt='pixel art of a room' className='w-full h-auto px-2 md:h-full md:w-auto' style={{ imageRendering: 'pixelated' }} />
             </div>
-            <div className='w-full px-20'>
+            <div className='w-full px-2 md:px-20'>
                 <hr></hr>
             </div>
             <div className='flex justify-center py-20'>
-                <div className='flex flex-wrap justify-start gap-4 sm:w-11/12 md:w-10/12 lg:w-4/5'>
+                <div className='flex flex-wrap justify-around xl:justify-between gap-4 sm:w-11/12 md:w-10/12 lg:w-4/5'>
                     {
                         projects.map((project) => (
                             <ProjectCard key={project.name} props={project} />
