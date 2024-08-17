@@ -13,6 +13,16 @@ function Projects() {
           github: 'https://github.com/stahsin00/portfolio.git'
         },
         {
+            name: 'Purrfect Neighbors',
+            type: 'Web',
+            description: 'A community-driven app that connects pet owners for adoption, donation, and resource-sharing within their neighborhood.',
+            status: 'Complete',
+            techStack: ['React', 'Node.js', 'Express', 'GraphQL', 'MySQL', 'Ant Design', 'styled-components'],
+            image: 'purrfect-neighbors.png',
+            github: 'https://github.com/stahsin00/purrfect-neighbors',
+            link: "http://purrfect-neighbors.ca-central-1.elasticbeanstalk.com"
+        },
+        {
             name: 'Fluentify',
             type: 'Web',
             description: 'A language learning app that uses Google Translate API and OpenAI API to generate stories and quizzes.',
@@ -21,7 +31,7 @@ function Projects() {
             image: 'fluentify.png',
             github: 'https://github.com/Zanzigzan/CPSC-2350-group-project.git',
             link: "https://fluent-ify.netlify.app/"
-          },
+        },
         {
           name: 'Solara',
           type: 'Web',
