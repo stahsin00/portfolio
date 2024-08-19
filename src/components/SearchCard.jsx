@@ -26,7 +26,7 @@ function SearchCard() {
 
     return (
         <div className="w-1/3 bg-white rounded-lg flex flex-wrap border border-black shadow-md">
-            <div className="w-full h-full p-10 relative">
+            <div className="w-full h-full p-10 relative overflow-auto">
                 <h2 className="text-black text-xl font-bold mb-2">Projects</h2>
                 <hr className='p-2'></hr>
                 <input 
@@ -90,14 +90,14 @@ function SearchCard() {
 
                 <button 
                     onClick={handleClear} 
-                    className="text-gray-500 hover:text-gray-700 text-lg font-bold py-2 px-4 absolute bottom-10"
+                    className="text-gray-500 hover:text-gray-700 text-lg font-bold py-2 px-4 lg:absolute lg:bottom-10"
                 >
                     Clear
                 </button>
 
                 <button 
                     onClick={handleSearch} 
-                    className="bg-teal-700 hover:bg-teal-900 text-white text-lg font-bold py-2 px-4 pl-6 pr-6 rounded-full absolute bottom-10 right-10"
+                    className="bg-teal-700 hover:bg-teal-900 text-white text-lg font-bold py-2 px-4 pl-6 pr-6 rounded-full lg:absolute lg:bottom-10 lg:right-10"
                 >
                     Search
                 </button>
