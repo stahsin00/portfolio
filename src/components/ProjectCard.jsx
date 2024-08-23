@@ -19,7 +19,7 @@ function ProjectCard({props}) {
             <div className='flex justify-center w-full'>
                 <img src={`/portfolio/assets/${props.image}`} alt={props.name} className="w-auto h-64 rounded-t-lg" />
             </div>
-            <div className="w-full h-64 overflow-auto">
+            <div className="w-full h-64 overflow-auto scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent scrollbar-thumb-rounded-lg scrollbar-track-rounded-full">
                 <div className="p-4">
                     <h2 className="text-black text-xl font-bold mb-2">{props.name}</h2>
                     <hr className='p-2'></hr>
