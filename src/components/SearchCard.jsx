@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { FaSearch } from "react-icons/fa";
 
 function SearchCard(props) {
     const [searchQuery, setSearchQuery] = useState('');
 
     const projectType = ['Web', 'Game', 'Other'];
     const projectStatus = ['Complete', 'In Progress', 'Inactive'];
-    const techStack = ['C#', 'PHP', 'React', 'CSS', 'Tailwind CSS', 'Material UI', 'Ant Design', 'styled-components', 'Node.js', 'Express', 'GraphQL', 'MongoDB', 'MySQL', 'Unity'];
+    const techStack = ['React', 'CSS', 'Tailwind CSS', 'Material UI', 'Ant Design', 'Node.js', 'Express', 'GraphQL', 'ASP.Net Core', 'PHP', 'MongoDB', 'MySQL', 'Unity'];
 
     const handleSelectionChange = (type) => {
         props.setSelectedTypes(prevSelected => 
@@ -26,9 +27,9 @@ function SearchCard(props) {
     };
 
     return (
-        <div className="w-1/3 bg-white rounded-lg flex flex-wrap border border-black shadow-md">
+        <div className="w-1/3 bg-white rounded-lg hidden md:flex flex-wrap border border-black shadow-md">
             <div className="w-full h-full p-10 relative overflow-auto scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent scrollbar-thumb-rounded-lg scrollbar-track-rounded-full">
-                <h2 className="text-black text-xl font-bold mb-2">Projects</h2>
+                <h2 className="text-black text-xl font-bold mb-2 flex items-center"><FaSearch className='mr-2' /> Projects</h2>
                 <hr className='p-2'></hr>
                 {
                 // <input 
@@ -92,17 +93,17 @@ function SearchCard(props) {
                 </div>
 
                 <button 
-                    onClick={handleClear} 
-                    className="text-gray-500 hover:text-gray-700 text-lg font-bold py-2 px-4 xl:absolute xl:bottom-10"
+                    onClick={handleSearch} 
+                    className="bg-teal-700 hover:bg-teal-900 text-white text-lg font-bold py-2 px-4 pl-6 pr-6 rounded-full 2xl:absolute 2xl:bottom-10 2xl:right-10"
                 >
-                    Clear
+                    Search
                 </button>
 
                 <button 
-                    onClick={handleSearch} 
-                    className="bg-teal-700 hover:bg-teal-900 text-white text-lg font-bold py-2 px-4 pl-6 pr-6 rounded-full xl:absolute xl:bottom-10 xl:right-10"
+                    onClick={handleClear} 
+                    className="text-gray-500 hover:text-gray-700 text-lg font-bold py-2 px-4 2xl:absolute 2xl:bottom-10"
                 >
-                    Search
+                    Clear
                 </button>
             </div>
         </div>
