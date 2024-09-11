@@ -59,7 +59,7 @@
       "type": "Web",
       "description": "A party game that uses Dall-e's image generation to allow user's to guess the initial prompt.",
       "status": "Inactive",
-      "techStack": ["React", "Material UI"],
+      "techStack": ["React", "MUI"],
       "image": "picture-chain.png",
       "github": "https://github.com/lhacks-rsmm/picturechain-frontend.git"
     },

@@ -6,7 +6,7 @@ function SearchCard(props) {
 
     const projectType = ['Web', 'Game', 'Other'];
     const projectStatus = ['Complete', 'In Progress', 'Inactive'];
-    const techStack = ['React', 'CSS', 'Tailwind CSS', 'Material UI', 'Ant Design', 'Node.js', 'Express', 'GraphQL', 'ASP.Net Core', 'PHP', 'MongoDB', 'MySQL', 'Unity'];
+    const techStack = ['React', 'CSS', 'Tailwind CSS', 'MUI', 'Ant Design', 'Node.js', 'Express', 'GraphQL', 'ASP.Net Core', 'PHP', 'MongoDB', 'MySQL', 'Unity'];
 
     const handleSelectionChange = (type) => {
         props.setSelectedTypes(prevSelected => 
