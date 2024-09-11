@@ -4,7 +4,7 @@
       "type": "Web",
       "description": "A portfolio website to showcase my projects.",
       "status": "In Progress",
-      "techStack": ["React", "Tailwind CSS"],
+      "techStack": ["React", "Tailwind"],
       "image": "portfolio.png",
       "github": "https://github.com/stahsin00/portfolio.git"
     },
@@ -41,7 +41,7 @@
       "type": "Web",
       "description": "A language learning app that uses Google Translate API and ChatGPT API to generate stories and quizzes.",
       "status": "Complete",
-      "techStack": ["React", "Tailwind CSS"],
+      "techStack": ["React", "Tailwind"],
       "image": "fluentify.png",
       "github": "https://github.com/Zanzigzan/CPSC-2350-group-project.git",
       "link": "https://fluent-ify.netlify.app/"

@@ -4,9 +4,9 @@ import { FaSearch } from "react-icons/fa";
 function SearchCard(props) {
     const [searchQuery, setSearchQuery] = useState('');
 
-    const projectType = ['Web', 'Game', 'Other'];
+    const projectType = ['Web', 'Game'];
     const projectStatus = ['Complete', 'In Progress', 'Inactive'];
-    const techStack = ['React', 'CSS', 'Tailwind CSS', 'MUI', 'Ant Design', 'Node.js', 'Express', 'GraphQL', 'ASP.Net Core', 'PHP', 'MongoDB', 'MySQL', 'Unity'];
+    const techStack = ['React', 'CSS', 'Tailwind', 'MUI', 'Ant Design', 'Node.js', 'Express', 'GraphQL', 'ASP.Net Core', 'PHP', 'MongoDB', 'MySQL', 'Unity'];
 
     const handleSelectionChange = (type) => {
         props.setSelectedTypes(prevSelected => 

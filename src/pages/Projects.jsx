@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from '../components/ProjectCard';
 import SearchCard from '../components/SearchCard';
 import projects from '../data/projects.json';
+import ImageModal from '../components/ImageModal';
 
 function Projects() {
     const [filteredProjects, setFilteredProjects] = useState(projects);
     const [selectedTypes, setSelectedTypes] = useState([]);
+    const [selectedImage, setSelectedImage] = useState(null);
     const targetRef = useRef(null);
 
     useEffect(() => {
@@ -33,11 +35,12 @@ function Projects() {
                 <div className='flex flex-wrap justify-around xl:justify-between gap-4 sm:w-11/12 md:w-10/12 lg:w-4/5'>
                     {
                         filteredProjects.map((project) => (
-                            <ProjectCard key={project.name} props={project} />
+                            <ProjectCard key={project.name} project={project} selectImage={() => {setSelectedImage(project)}} />
                         ))
                     }
                 </div>
             </div>
+            <ImageModal selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
         </div>
     );
 }
