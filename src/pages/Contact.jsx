@@ -56,8 +56,8 @@ function Contact() {
     };
 
     return (
-        <div className='flex gap-10 p-5 md:p-20 justify-center items-center w-screen h-screen'>
-            <form className="space-y-4 p-5 md:p-20 w-full max-h-full rounded-lg border border-black shadow-md overflow-x-auto overflow-y-auto" onSubmit={handleSubmit}>
+        <div className='flex gap-10 p-5 md:p-20 justify-around items-center w-screen h-screen'>
+            <form className="space-y-4 p-5 md:p-20 w-full max-h-full rounded-lg border border-black shadow-md overflow-x-auto overflow-y-auto scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent scrollbar-thumb-rounded-lg scrollbar-track-rounded-full" onSubmit={handleSubmit}>
             <h2 className="text-black text-xl font-bold mb-2 hidden lg:flex items-center"><FaRegMessage className='mr-2' /> Contact</h2>
             <hr className='hidden lg:flex p-2'></hr>
                 <div>
