@@ -6,7 +6,7 @@ function SearchCard(props) {
 
     const projectType = ['Web', 'Game'];
     const projectStatus = ['Complete', 'In Progress', 'Inactive'];
-    const techStack = ['React', 'CSS', 'Tailwind', 'MUI', 'Ant Design', 'Node.js', 'Express', 'GraphQL', 'ASP.Net Core', 'PHP', 'MongoDB', 'MySQL', 'Unity'];
+    const skills = ['React', 'CSS', 'Tailwind', 'MUI', 'Ant Design', 'Node.js', 'Express', 'GraphQL', 'ASP.Net Core', 'PHP', 'MongoDB', 'MySQL', 'Redis', 'Websocket', 'Unity'];
 
     const handleSelectionChange = (type) => {
         props.setSelectedTypes(prevSelected => 
@@ -75,10 +75,10 @@ function SearchCard(props) {
                     ))}
                 </div>
 
-                <h3 className="text-black text-l font-bold mb-2">Languages & Frameworks</h3>
+                <h3 className="text-black text-l font-bold mb-2">Skills</h3>
                 <hr className='p-2'></hr>
                 <div className="mb-10 flex flex-wrap gap-4">
-                    {techStack.map((type) => (
+                    {skills.map((type) => (
                         <label key={type} className="text-sm">
                             <input 
                                 type="checkbox" 
