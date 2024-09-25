@@ -7,7 +7,7 @@
       "techStack": ["React", "Node.js", "Express", "GraphQL", "MySQL", "Redis", "Websocket", "Ant Design"],
       "image": "purrfect-neighbors.png",
       "github": "https://github.com/stahsin00/purrfect-neighbors",
-      "link": "http://purrfect-neighbors.ca-central-1.elasticbeanstalk.com"
+      "link": "https://frontend.purrfect-neighbors-frontend.stahsin00.defang.app"
     },
     {
       "name": "Solara",
@@ -58,7 +58,7 @@
     {
       "name": "PictureChain",
       "type": "Web",
-      "description": "A party game that uses Dall-e's image generation to allow user's to guess the initial prompt.",
+      "description": "A party game that uses Dall-E's image generation to allow user's to guess the initial prompt.",
       "status": "Inactive",
       "techStack": ["React", "MUI"],
       "image": "picture-chain.png",
