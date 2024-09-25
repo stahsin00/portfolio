@@ -25,7 +25,8 @@
       "status": "Complete",
       "techStack": ["React", "CSS", "Node.Js", "Express", "MongoDB"],
       "image": "echo-lounge.png",
-      "github": "https://github.com/stahsin00/echo-lounge.git"
+      "github": "https://github.com/stahsin00/echo-lounge.git",
+      "link": "https://stahsin00-frontend--80.prod1a.defang.dev"
     },
     {
       "name": "Fluentify",
