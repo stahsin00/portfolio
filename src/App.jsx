@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import './App.css'
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import Chat from './components/Chat';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Socials />
+      <Chat />
     </>
   )
 }
