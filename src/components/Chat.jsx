@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaCommentDots, FaShare } from 'react-icons/fa';
+import { FaCommentDots, FaShare, FaTimes } from 'react-icons/fa';
 import Dots from './Dots';
 
 function Chat() {
@@ -13,20 +13,24 @@ function Chat() {
         if (chatRef.current) {
             chatRef.current.scrollTop = chatRef.current.scrollHeight;
         }
-    }, [messages]);
+    }, [messages, isOpen]);
 
     const handleSend = () => {
         if (sending) return;
         setSending(true);
 
-        const messageObject = { sender: 'user', message: curMessage };
+        const messageObject = { role: 'user', content: curMessage };
+
         setMessages(prevMessages => [...prevMessages, messageObject]);
-        sendMessage(curMessage);
+        sendMessage(messageObject);
+
         setCurMessage("");
     }
 
-    const sendMessage = async (msg) => {
+    const sendMessage = async (messageObject) => {
         try {
+            const newMessages = [...messages, messageObject];
+
             const response = await fetch(
                 `${import.meta.env.VITE_API_URL}/api/chat`,
                 {
@@ -34,7 +38,7 @@ function Chat() {
                   headers: {
                       'Content-Type': 'application/json'
                   },
-                  body: JSON.stringify({ message: msg })
+                  body: JSON.stringify({ messages: newMessages })  // TODO: backend session management
                 }
               );
 
@@ -43,8 +47,8 @@ function Chat() {
               }
 
             const result = await response.json();
-            const messageObject = { sender: 'bot', message: result.message };
-            setMessages(prevMessages => [...prevMessages, messageObject]);
+            const assistantMessage = { role: 'assistant', content: result.message };
+            setMessages(prevMessages => [...prevMessages, assistantMessage]);
         } catch (e) {
             console.error(e.message);
         } finally {
@@ -53,15 +57,22 @@ function Chat() {
     }
 
     const renderChat = () => {
+        if (!messages.length) {
+            return (
+                <div className='w-full h-full flex justify-center items-center text-center text-teal-800 p-20'>
+                    Hi! Ask me anything about Shushama’s projects, skills, or experience.
+                </div>
+            );
+        }
         const messagesDivs = messages.map((msg, index) => (
-            <div key={index} className={`p-2 m-2 rounded-lg w-fit max-w-[80%] ${msg.sender == 'user' ? 'ml-auto bg-gray-200' : 'bg-teal-100'}`}>
-                {msg.message}
+            <div key={index} className={`p-2 m-2 rounded-lg w-fit max-w-[80%] ${msg.role == 'user' ? 'ml-auto bg-gray-200' : 'bg-gray-100 text-teal-800'}`}>
+                {msg.content}
             </div>
         ));
         
         if (sending) {
             messagesDivs.push(
-                <div key="sending" className="p-2 m-2 rounded-lg w-8 bg-teal-100">
+                <div key="sending" className="p-2 m-2 rounded-lg w-8 bg-gray-100 text-teal-800">
                     <Dots />
                 </div>
             );
@@ -77,7 +88,10 @@ function Chat() {
             </div>
             {
                 isOpen ?
-                <div className='bg-white fixed bottom-5 right-20 space-y-5 rounded-lg border border-black shadow-md md:w-120 md:h-4/6'>
+                <div className='bg-white fixed top-0 left-0 md:top-auto md:left-auto md:bottom-5 md:right-20 space-y-5 md:rounded-lg border border-black shadow-md w-screen h-screen md:w-120 md:h-4/6'>
+                    <div className='m-0 p-0 pb-2'>
+                        <button className="absolute right-0 flex items-center justify-center text-teal-700 p-1 m-1 rounded-full" onClick={() => setIsOPen(!isOpen)}><FaTimes size={18} /></button>
+                    </div>
                     <div ref={chatRef} className='w-full h-[85%] overflow-auto scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent scrollbar-thumb-rounded-lg scrollbar-track-rounded-full'>
                         {renderChat()}
                     </div>
