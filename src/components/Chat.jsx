@@ -32,7 +32,7 @@ function Chat() {
             const newMessages = [...messages, messageObject];
 
             const response = await fetch(
-                `${import.meta.env.VITE_API_URL}/api/chat`,
+                `${import.meta.env.VITE_API_URL}/chat`,
                 {
                   method: 'POST',
                   headers: {
