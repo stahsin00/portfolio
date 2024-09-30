@@ -82,7 +82,7 @@ function Chat() {
     }
 
     return (
-        <>
+        <div className='hidden md:flex'>
             <div className='fixed bottom-0 right-0 p-5 space-y-5'>
                 <button className={`${isOpen ? 'bg-teal-700' : 'bg-black'} hover:bg-teal-700 text-white p-2 rounded-full border-2 border-white border-solid`} onClick={() => setIsOPen(!isOpen)}><FaCommentDots size={32} /></button>
             </div>
@@ -112,7 +112,7 @@ function Chat() {
                 :
                 <></>
             }
-        </>
+        </div>
     );
 }
 
