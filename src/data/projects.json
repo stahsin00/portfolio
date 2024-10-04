@@ -6,8 +6,7 @@
       "status": "Complete",
       "techStack": ["React", "Node.js", "Express", "GraphQL", "MySQL", "Redis", "Websocket", "Ant Design"],
       "image": "purrfect-neighbors.png",
-      "github": "https://github.com/stahsin00/purrfect-neighbors",
-      "link": "https://frontend.purrfect-neighbors-frontend.stahsin00.defang.app"
+      "github": "https://github.com/stahsin00/purrfect-neighbors"
     },
     {
       "name": "Solara",
@@ -25,8 +24,7 @@
       "status": "Complete",
       "techStack": ["React", "CSS", "Node.Js", "Express", "MongoDB"],
       "image": "echo-lounge.png",
-      "github": "https://github.com/stahsin00/echo-lounge.git",
-      "link": "https://stahsin00-frontend--80.prod1a.defang.dev"
+      "github": "https://github.com/stahsin00/echo-lounge.git"
     },
     {
       "name": "Fluentify",
