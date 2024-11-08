@@ -82,7 +82,7 @@ function Chat() {
     }
 
     return (
-        <div className='hidden md:flex'>
+        <div className='flex'>
             <div className='fixed bottom-0 right-0 p-5 space-y-5'>
                 <button className={`${isOpen ? 'bg-teal-700' : 'bg-black'} hover:bg-teal-700 text-white p-2 rounded-full border-2 border-white border-solid`} onClick={() => setIsOPen(!isOpen)}>
                     <FaCommentDots size={32} />
@@ -99,7 +99,7 @@ function Chat() {
                     <div ref={chatRef} className='w-full flex-grow overflow-auto scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent scrollbar-thumb-rounded-lg scrollbar-track-rounded-full'>
                         {renderChat()}
                     </div>
-                    <div className='flex w-full pb-5'>
+                    <div className='pb-5 flex w-full'>
                         <input 
                             className='p-1 rounded-lg border border-gray-300 focus:outline-none w-5/6 ml-5 shadow-inner' 
                             type='text' 
