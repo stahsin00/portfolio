@@ -52,7 +52,8 @@
       "description": "An endless scrolling image gallery website meant to imitate the feeling of taking a stroll around the world.",
       "status": "Inactive",
       "techStack": ["HTML", "CSS", "PHP", "MySQL"],
-      "image": "saunter.png"
+      "image": "saunter.png",
+      "github": "https://github.com/stahsin00/saunter"
     },
     {
       "name": "PictureChain",
