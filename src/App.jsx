@@ -14,14 +14,14 @@ function App() {
 
   return (
     <>
-      <HashRouter>
+      <HashRouter basename="/portfolio">
         <Nav />
         <Routes>
-          <Route path='/portfolio/' element={<Projects />} exact/>
-          <Route path='/portfolio/home' element={<Home />} />
-          <Route path='/portfolio/about' element={<About />} />
-          <Route path='/portfolio/projects' element={<Projects />} />
-          <Route path='/portfolio/contact' element={<Contact />} />
+          <Route path="/" element={<Projects />} exact />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </HashRouter>
       <Socials />
