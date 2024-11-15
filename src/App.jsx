@@ -14,8 +14,8 @@ function App() {
 
   return (
     <>
+      <Nav />
       <HashRouter basename="/portfolio">
-        <Nav />
         <Routes>
           <Route path="/" element={<Projects />} exact />
           <Route path="/home" element={<Home />} />
