@@ -5,17 +5,17 @@ import Projects from './pages/Projects';
 // import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
-import './App.css'
+import './App.css';
+import Chat from './components/Chat';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
-import Chat from './components/Chat';
 
 function App() {
 
   return (
     <>
       
-      <HashRouter basename="/portfolio">
+      <HashRouter>
         <Nav />
         <Routes>
           <Route path="/" element={<Projects />} exact />
