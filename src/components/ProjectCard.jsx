@@ -15,7 +15,7 @@ function ProjectCard({project, selectImage}) {
     }
 
     return (
-        <div className="md:w-120 bg-white rounded-lg flex flex-wrap border border-black shadow-md">
+        <div className="md:w-120 bg-white rounded-lg flex flex-wrap border border-black shadow-md transform transition-transform duration-300 hover:scale-105">
             <div className='flex justify-center w-full bg-gray-300 rounded-t-lg'>
                 <img src={`/portfolio/assets/${project.image}`} alt={project.name} className="w-full h-auto md:w-auto md:h-64 rounded-t-lg cursor-pointer"  style={{imageRendering: project.pixelated ? 'pixelated' : 'auto'}} onClick={() => selectImage()} />
             </div>
