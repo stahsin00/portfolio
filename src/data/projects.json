@@ -44,7 +44,8 @@
       "techStack": ["Unity"],
       "image": "pixel-crawler.png",
       "pixelated": "true",
-      "github": "https://github.com/stahsin00/pixel-crawler-prototype"
+      "github": "https://github.com/stahsin00/pixel-crawler-prototype",
+      "itch" : "https://aura-111.itch.io/pixel-crawler"
     },
     {
       "name": "Saunter",

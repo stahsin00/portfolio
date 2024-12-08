@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaItchIo } from 'react-icons/fa';
 
 function ProjectCard({project, selectImage}) {
 
@@ -32,6 +32,9 @@ function ProjectCard({project, selectImage}) {
                         )}
                         {project.link && (
                             <a href={project.link} target="_blank" rel="noreferrer" className="text-teal-500 hover:text-teal-700"><FaExternalLinkAlt size={32} /></a>
+                        )}
+                        {project.itch && (
+                            <a href={project.itch} target="_blank" rel="noreferrer" className="text-teal-500 hover:text-teal-700"><FaItchIo size={32} /></a>
                         )}
                     </div>
                 </div>
