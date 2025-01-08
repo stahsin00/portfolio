@@ -4,16 +4,23 @@ import { FaAngleLeft, FaAngleRight, FaGithub, FaExternalLinkAlt, FaItchIo, FaCir
 import Typewriter from '../components/Typewriter';
 
 function Carousel() {
-  const dots = ['.', '..', '...', '..'];
-  const [index, setIndex] = useState(0);
+  const [curIndex, setCurIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % dots.length);
-    }, 300);
+      //onRightClick();
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
+
+  const onRightClick = () => {
+    setCurIndex((prev) => (prev + 1) % projects.length);
+  }
+
+  const onLeftClick = () => {
+    setCurIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  }
 
   return (
     <div className='bg-black/75 rounded-lg border border-white w-4/5 h-4/5 flex flex-col'>
@@ -24,34 +31,34 @@ function Carousel() {
         </div>
         <div className='w-full flex flex-col items-center mt-5'>
             <h2 className='text-white text-2xl font-bold'>Featured Projects</h2>
-            <div className='flex justify-center items-center pt-10 pb-10'>
-                <button className='text-white p-10'><FaAngleLeft size={32} /></button>
+            <div className='flex justify-center items-center pt-10 pb-10 w-full'>
+                <button className='text-white p-10'><FaAngleLeft size={32} onClick={onLeftClick} /></button>
                 <div className='flex text-white gap-10 w-4/5'>
-                    <img src={`/portfolio/assets/${projects[0].image}`} alt={projects[0].name} className="w-3/5 h-auto"  style={{imageRendering: projects[0].pixelated ? 'pixelated' : 'auto'}} />
-                    <div>
-                        <h3 className="text-3xl font-bold mb-5">{projects[0].name}</h3>
+                    <img src={`/portfolio/assets/${projects[curIndex].image}`} alt={projects[curIndex].name} className="w-3/5 h-auto" style={{imageRendering: projects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
+                    <div className='w-2/5'>
+                        <h3 className="text-3xl font-bold mb-5">{projects[curIndex].name}</h3>
                         <hr className='p-2'></hr>
-                        <div className="font-bold mb-2">{projects[0].techStack.join(', ')}</div>
-                        <p className='mt-5 mb-5'>{projects[0].description}</p>
+                        <div className="font-bold mb-2">{projects[curIndex].techStack.join(', ')}</div>
+                        <p className='mt-5 mb-5'>{projects[curIndex].description}</p>
                         <div className='flex gap-2 mt-5'>
-                                {projects[0].github && (
-                                    <a href={projects[0].github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white"><FaGithub size={32} /></a>
+                                {projects[curIndex].github && (
+                                    <a href={projects[curIndex].github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white"><FaGithub size={32} /></a>
                                 )}
-                                {projects[0].link && (
-                                    <a href={projects[0].link} target="_blank" rel="noreferrer" className="text-teal-500 hover:text-white"><FaExternalLinkAlt size={32} /></a>
+                                {projects[curIndex].link && (
+                                    <a href={projects[curIndex].link} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white"><FaExternalLinkAlt size={32} /></a>
                                 )}
-                                {projects[0].itch && (
-                                    <a href={projects[0].itch} target="_blank" rel="noreferrer" className="text-teal-500 hover:text-white"><FaItchIo size={32} /></a>
+                                {projects[curIndex].itch && (
+                                    <a href={projects[curIndex].itch} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white"><FaItchIo size={32} /></a>
                                 )}
                             </div>
                     </div>
                 </div>
-                <button className='text-white p-10'><FaAngleRight size={32} /></button>
+                <button className='text-white p-10'><FaAngleRight size={32} onClick={onRightClick}/></button>
             </div>
-            <div className='text-white flex gap-3 text-gray-400'>
+            <div className='text-white flex gap-3'>
                 {
                     projects.map((project, index) => (
-                        <button className={`${index == 0 ? 'text-white' : ''} hover:text-white`}>
+                        <button className={`${index == curIndex ? 'text-white' : 'text-gray-400'} hover:text-white`}>
                             <FaCircle/>
                         </button>
                     ))
