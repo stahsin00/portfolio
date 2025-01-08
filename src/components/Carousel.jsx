@@ -31,7 +31,7 @@ function Carousel() {
         </div>
         <div className='w-full flex flex-col items-center mt-5'>
             <h2 className='text-white text-2xl font-bold'>Featured Projects</h2>
-            <div className='flex justify-center items-center pt-10 pb-10 w-full'>
+            <div className='flex justify-center items-center pt-10 pb-10 w-full h-120'>
                 <button className='text-white p-10'><FaAngleLeft size={32} onClick={onLeftClick} /></button>
                 <div className='flex text-white gap-10 w-4/5'>
                     <img src={`/portfolio/assets/${projects[curIndex].image}`} alt={projects[curIndex].name} className="w-3/5 h-auto" style={{imageRendering: projects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
