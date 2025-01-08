@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function Typewriter({text = ''}) {
     const [displayedText, setDisplayedText] = useState('');
+    const [caret, setCaret] = useState('|');
     const [index, setIndex] = useState(0);
     const [typing, setTyping] = useState(true);
 
@@ -27,7 +28,15 @@ function Typewriter({text = ''}) {
     return () => clearInterval(interval);
   }, [index, typing]);
 
-  return <>{displayedText}</>;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCaret((prev) => (prev === '' ? '|' : ''));
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return <>{displayedText} {caret}</>;
 }
 
 export default Typewriter;
