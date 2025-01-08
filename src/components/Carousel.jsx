@@ -5,15 +5,19 @@ import Typewriter from '../components/Typewriter';
 
 function Carousel() {
   const [curIndex, setCurIndex] = useState(0);
+  // TODO: what if someone refreshes the page using keyboard while the mouse was hovering
+  const [isHovering, setIsHovering] = useState(false);
   const featuredProjects = projects.filter(project => project.featured === "true");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      onRightClick();
-    }, 5000);
+    if (!isHovering) {
+        const interval = setInterval(() => {
+        onRightClick();
+        }, 5000);
 
-    return () => clearInterval(interval);
-  }, [curIndex]);
+        return () => clearInterval(interval);
+    }
+  }, [curIndex, isHovering]);
 
   const onRightClick = () => {
     setCurIndex((prev) => (prev + 1) % featuredProjects.length);
@@ -24,24 +28,24 @@ function Carousel() {
   }
 
   return (
-    <div className='bg-black/75 rounded-lg border border-white w-4/5 h-4/5 flex flex-col'>
-        <div className='text-white pt-10 pl-20 pr-20 w-full'>
-            <h1 className='text-white text-5xl font-bold [text-shadow:_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000] flex items-center'><img src="/portfolio/sunflower.ico" alt="sunflower" className='h-11 w-auto mr-2' style={{imageRendering: 'pixelated'}}></img> Welcome to my <span className='text-yellow-300 ml-3'>Portfolio</span></h1>
-            <div className='text-xl h-10 w-64 p-2 mt-2 mb-5 bg-black rounded-lg font-vt323 text-teal-400  border-b border-r border-gray-700'><Typewriter text='Hello! :) '/></div>
+    <div className='bg-black/75 rounded-lg border border-white w-4/5 h-3/4 2xl:h-4/5 flex flex-col'>
+        <div className='text-white pt-7 2xl:pt-10 pl-20 pr-20 w-full'>
+            <h1 className='text-white text-3xl 2xl:text-5xl font-bold [text-shadow:_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000] flex items-center'><img src="/portfolio/sunflower.ico" alt="sunflower" className='h-8 2xl:h-11 w-auto mr-2' style={{imageRendering: 'pixelated'}}></img> Welcome to my <span className='text-yellow-300 ml-3'>Portfolio</span></h1>
+            <div className='text-lg 2xl:text-xl h-7 2xl:h-10 w-52 2xl:w-64 p-2 mt-2 mb-2 2xl:mb-5 bg-black rounded-lg font-vt323 text-teal-400  border-b border-r border-gray-700 flex items-center'><Typewriter text='Hello! :) '/></div>
             <hr></hr>
         </div>
-        <div className='w-full flex flex-col items-center mt-10'>
-            <h2 className='text-white text-2xl font-bold'>Featured Projects</h2>
-            <div className='flex justify-center items-center pt-5 pb-10 w-full h-120'>
+        <div className='w-full flex flex-col items-center mt-3 2xl:mt-10'>
+            <h2 className='text-white text-xl 2xl:text-2xl font-bold'>Featured Projects</h2>
+            <div className='flex justify-center items-center pt-2 2xl:pt-5 pb-2 2xl:pb-10 w-full h-64 2xl:h-120'>
                 <button className='text-white p-10'><FaAngleLeft size={32} onClick={onLeftClick} /></button>
-                <div className='flex text-white justify-around w-4/5'>
-                    <img src={`/portfolio/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-3/5 h-auto" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
+                <div className='flex text-white justify-around w-4/5' onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+                    <img src={`/portfolio/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-2/4 2xl:w-3/5 h-auto transform transition-transform duration-300 hover:scale-105" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
                     <div className='w-1/4'>
-                        <h3 className="text-3xl font-bold mb-5">{featuredProjects[curIndex].name}</h3>
-                        <hr className='p-2'></hr>
-                        <div className="font-bold mb-2">{featuredProjects[curIndex].techStack.join(', ')}</div>
-                        <p className='mt-5 mb-5'>{featuredProjects[curIndex].description}</p>
-                        <div className='flex gap-2 mt-5'>
+                        <h3 className="text-xl 2xl:text-3xl font-bold mb-2 2xl:mb-5">{featuredProjects[curIndex].name}</h3>
+                        <hr className='p-1 2xl:p-2'></hr>
+                        <div className="text-sm 2xl:text-xl font-bold mb-2">{featuredProjects[curIndex].techStack.join(', ')}</div>
+                        <p className='mt-2 2xl:mt-5 mb-2 2xl:mb-5'>{featuredProjects[curIndex].description}</p>
+                        <div className='flex gap-2 mt-2 2xl:mt-5'>
                                 {featuredProjects[curIndex].github && (
                                     <a href={featuredProjects[curIndex].github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white"><FaGithub size={32} /></a>
                                 )}
@@ -59,7 +63,7 @@ function Carousel() {
             <div className='text-white flex gap-3'>
                 {
                     featuredProjects.map((project, index) => (
-                        <button className={`${index == curIndex ? 'text-white' : 'text-gray-400'} hover:text-white`} onClick={() => {setCurIndex(index)}}>
+                        <button className={`${index == curIndex ? 'text-white' : 'text-gray-400'} hover:text-white text-sm 2xl:text-lg`} onClick={() => {setCurIndex(index)}}>
                             <FaCircle/>
                         </button>
                     ))
