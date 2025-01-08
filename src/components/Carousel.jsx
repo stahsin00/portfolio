@@ -30,13 +30,13 @@ function Carousel() {
             <div className='text-xl h-10 w-64 p-2 mt-2 mb-5 bg-black rounded-lg font-vt323 text-teal-400  border-b border-r border-gray-700'><Typewriter text='Hello! :) '/></div>
             <hr></hr>
         </div>
-        <div className='w-full flex flex-col items-center mt-5'>
+        <div className='w-full flex flex-col items-center mt-10'>
             <h2 className='text-white text-2xl font-bold'>Featured Projects</h2>
-            <div className='flex justify-center items-center pt-10 pb-10 w-full h-120'>
+            <div className='flex justify-center items-center pt-5 pb-10 w-full h-120'>
                 <button className='text-white p-10'><FaAngleLeft size={32} onClick={onLeftClick} /></button>
-                <div className='flex text-white gap-10 w-4/5'>
+                <div className='flex text-white justify-around w-4/5'>
                     <img src={`/portfolio/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-3/5 h-auto" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
-                    <div className='w-2/5'>
+                    <div className='w-1/4'>
                         <h3 className="text-3xl font-bold mb-5">{featuredProjects[curIndex].name}</h3>
                         <hr className='p-2'></hr>
                         <div className="font-bold mb-2">{featuredProjects[curIndex].techStack.join(', ')}</div>
@@ -59,7 +59,7 @@ function Carousel() {
             <div className='text-white flex gap-3'>
                 {
                     featuredProjects.map((project, index) => (
-                        <button className={`${index == curIndex ? 'text-white' : 'text-gray-400'} hover:text-white`}>
+                        <button className={`${index == curIndex ? 'text-white' : 'text-gray-400'} hover:text-white`} onClick={() => {setCurIndex(index)}}>
                             <FaCircle/>
                         </button>
                     ))
