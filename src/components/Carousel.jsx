@@ -9,11 +9,11 @@ function Carousel() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      //onRightClick();
+      onRightClick();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [curIndex]);
 
   const onRightClick = () => {
     setCurIndex((prev) => (prev + 1) % featuredProjects.length);
@@ -27,7 +27,7 @@ function Carousel() {
     <div className='bg-black/75 rounded-lg border border-white w-4/5 h-4/5 flex flex-col'>
         <div className='text-white pt-10 pl-20 pr-20 w-full'>
             <h1 className='text-white text-5xl font-bold [text-shadow:_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000] flex items-center'><img src="/portfolio/sunflower.ico" alt="sunflower" className='h-11 w-auto mr-2' style={{imageRendering: 'pixelated'}}></img> Welcome to my <span className='text-yellow-300 ml-3'>Portfolio</span></h1>
-            <div className='text-xl h-10 w-64 p-2 mt-2 mb-5 bg-black rounded-lg font-vt323 text-teal-400'><Typewriter text='Hello! :) '/></div>
+            <div className='text-xl h-10 w-64 p-2 mt-2 mb-5 bg-black rounded-lg font-vt323 text-teal-400  border-b border-r border-gray-700'><Typewriter text='Hello! :) '/></div>
             <hr></hr>
         </div>
         <div className='w-full flex flex-col items-center mt-5'>
