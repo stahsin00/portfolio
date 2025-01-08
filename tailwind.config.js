@@ -15,6 +15,7 @@ export default {
       'serif': ['Roboto', 'serif'],
       'mono': ['Roboto', 'monospace'],
       'arial': ['Arial', 'sans-serif'],
+      'vt323': ['VT323', 'monospace'],
     },
   },
   plugins: [
