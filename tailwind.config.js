@@ -7,14 +7,18 @@ export default {
   theme: {
     extend: {
       width: {
-        '120': '30rem', // Adjust 30rem to your desired width
-      }
+        '120': '30rem',
+      },
+      height: {
+        '120': '27rem',
+      },
     },
     fontFamily: {
       'sans': ['Roboto', 'sans-serif'],
       'serif': ['Roboto', 'serif'],
       'mono': ['Roboto', 'monospace'],
       'arial': ['Arial', 'sans-serif'],
+      'vt323': ['VT323', 'monospace'],
     },
   },
   plugins: [

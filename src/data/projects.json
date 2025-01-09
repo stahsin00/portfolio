@@ -15,7 +15,8 @@
       "status": "Complete",
       "techStack": ["React", "CSS", "Node.Js", "Express", "MongoDB"],
       "image": "echo-lounge.png",
-      "github": "https://github.com/stahsin00/echo-lounge.git"
+      "github": "https://github.com/stahsin00/echo-lounge.git",
+      "featured": "true"
     },
     {
       "name": "Solara",
@@ -24,7 +25,8 @@
       "status": "In Progress",
       "techStack": ["React", "CSS", "ASP.Net Core", "MySQL", "Redis", "Websocket"],
       "image": "solara.png",
-      "github": "https://github.com/stahsin00/Solara.git"
+      "github": "https://github.com/stahsin00/Solara.git",
+      "featured": "true"
     },
     {
       "name": "Fluentify",
@@ -45,7 +47,8 @@
       "image": "pixel-crawler.png",
       "pixelated": "true",
       "github": "https://github.com/stahsin00/pixel-crawler-prototype",
-      "itch" : "https://aura-111.itch.io/pixel-crawler"
+      "itch" : "https://aura-111.itch.io/pixel-crawler",
+      "featured": "true"
     },
     {
       "name": "Saunter",

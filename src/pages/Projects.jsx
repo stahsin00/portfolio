@@ -32,7 +32,7 @@ function Projects() {
                 <hr></hr>
             </div>
             <div className='flex justify-center py-20' ref={targetRef}>
-                <div className='flex flex-wrap justify-around xl:justify-between gap-4 sm:w-11/12 md:w-10/12 lg:w-4/5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 sm:w-11/12 md:w-10/12 lg:w-4/5 justify-items-center'>
                     {
                         filteredProjects.map((project) => (
                             <ProjectCard key={project.name} project={project} selectImage={() => {setSelectedImage(project)}} />
