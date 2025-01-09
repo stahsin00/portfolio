@@ -28,27 +28,31 @@ function Carousel() {
   }
 
   return (
-    <div className='bg-white rounded-lg border border-black shadow-md w-11/12 md:w-4/5 h-3/4 2xl:h-4/5 flex flex-col'>
-        <div className='text-black pt-5 md:pt-7 2xl:pt-10 px-5 md:pl-20 md:pr-20 w-full'>
+    <div className='bg-white rounded-lg border border-black shadow-md w-11/12 md:w-4/5 h-3/4 2xl:h-4/5 flex flex-col justify-center mx-auto'>
+        <div className='text-black pt-5 2xl:pt-10 px-5 md:pl-20 md:pr-20 w-full'>
             <div>
             {
             // <div className='flex flex-col md:flex-row md:justify-between'>
             }
-                <h1 className='text-black text-lg md:text-3xl 2xl:text-5xl font-bold flex items-center'><img src="/portfolio/sunflower.ico" alt="sunflower" className='h-8 2xl:h-11 w-auto mr-2' style={{imageRendering: 'pixelated'}}></img> Welcome to my <span className='text-yellow-400 ml-2 md:ml-3'>Portfolio</span></h1>
-                <div className='text-lg 2xl:text-xl h-7 2xl:h-10 w-52 2xl:w-64 p-2 mt-2 mb-2 2xl:mb-5 bg-black text-teal-400 rounded-lg font-vt323 border-b border-r border-gray-400 flex items-center'><Typewriter text='Hello! :) '/></div>
+                <h1 className='text-black text-lg md:text-4xl 2xl:text-5xl font-bold flex items-center mb-2 justify-center md:justify-start'><img src="/portfolio/sunflower.ico" alt="sunflower" className='h-8 md:h-10 2xl:h-11 w-auto mr-2' style={{imageRendering: 'pixelated'}}></img> Welcome to my <span className='text-yellow-400 ml-2 md:ml-3'>Portfolio</span></h1>
+                {
+                    //<div className='text-lg 2xl:text-xl h-7 2xl:h-10 w-52 2xl:w-64 p-2 mt-2 mb-2 2xl:mb-5 bg-black text-teal-400 rounded-lg font-vt323 border-b border-r border-gray-400 flex items-center'><Typewriter text='Hello! :) '/></div>
+                }
             </div>
-            <hr></hr>
+            {
+                <hr></hr>
+            }
         </div>
-        <div className='w-full flex flex-col items-center mt-3 2xl:mt-10'>
+        <div className='w-full flex flex-col items-center justify-center mt-3 2xl:mt-10 bg-white'>
             <h2 className='text-black text-xl 2xl:text-2xl font-bold mb-2 md:mb-0'>Featured Projects</h2>
-            <div className='flex justify-center items-center py-2 2xl:pt-5 2xl:pb-10 w-full h-80 md:h-64 2xl:h-120'>
+            <div className='flex justify-center items-center py-2 2xl:pt-5 2xl:pb-10 w-full h-80 md:h-72 2xl:h-120'>
                 <button className='hidden md:block text-gray-400 hover:text-gray-700 p-10 z-30'><FaAngleLeft size={32} onClick={onLeftClick} /></button>
                 <div className='flex flex-col md:flex-row text-black justify-around w-4/5 z-30' onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                    <img src={`/portfolio/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-full md:w-2/4 2xl:w-3/5 h-auto transform transition-transform duration-300 hover:scale-105 shadow-md z-50 rounded-lg" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
+                    <img src={`/portfolio/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-full md:w-3/5 2xl:w-3/5 h-auto transform transition-transform duration-300 hover:scale-105 shadow-md z-50 rounded-lg" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
                     <div className='w-full md:w-1/4'>
                         <h3 className="text-xl 2xl:text-3xl font-bold mt-2 md:mt-0 mb-2 2xl:mb-5">{featuredProjects[curIndex].name}</h3>
                         <hr className='p-1 2xl:p-2'></hr>
-                        <div className="text-sm 2xl:text-xl font-bold mb-2">{featuredProjects[curIndex].techStack.join(', ')}</div>
+                        <div className="text-xs 2xl:text-xl font-bold mb-1 text-gray-600">{featuredProjects[curIndex].techStack.join(', ')}</div>
                         <p className='mt-2 2xl:mt-5 mb-2 2xl:mb-5'>{featuredProjects[curIndex].description}</p>
                         <div className='flex gap-2 mt-2 2xl:mt-5'>
                                 {featuredProjects[curIndex].github && (
