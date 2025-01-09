@@ -83,14 +83,14 @@ function Chat() {
 
     return (
         <div className='flex z-50'>
-            <div className='fixed bottom-0 right-0 p-5 space-y-5'>
+            <div className='fixed bottom-0 right-0 p-5 space-y-5 z-50'>
                 <button className={`${isOpen ? 'bg-teal-700' : 'bg-black'} hover:bg-teal-700 text-white p-2 rounded-full border-2 border-white border-solid`} onClick={() => setIsOPen(!isOpen)}>
                     <FaCommentDots size={32} />
                 </button>
             </div>
             {
                 isOpen ?
-                <div className='bg-white fixed top-0 left-0 md:top-auto md:left-auto md:bottom-5 md:right-20 space-y-5 md:rounded-lg border border-black shadow-md w-full h-full md:w-120 md:h-4/6 flex flex-col'>
+                <div className='bg-white fixed top-0 left-0 md:top-auto md:left-auto md:bottom-5 md:right-20 space-y-5 md:rounded-lg border border-black shadow-md w-full h-full md:w-120 md:h-4/6 flex flex-col z-50'>
                     <div className='m-0 p-0 pb-2'>
                         <button className="absolute right-0 flex items-center justify-center text-teal-700 p-1 m-1 rounded-full" onClick={() => setIsOPen(!isOpen)}>
                             <FaTimes size={18} />
