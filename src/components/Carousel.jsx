@@ -28,8 +28,8 @@ function Carousel() {
   }
 
   return (
-    <div className='bg-white rounded-lg border border-black shadow-md w-11/12 md:w-4/5 h-3/4 2xl:h-4/5 flex flex-col justify-center mx-auto'>
-        <div className='text-black pt-5 2xl:pt-10 px-5 md:pl-20 md:pr-20 w-full'>
+    <div className='w-11/12 md:w-4/5 h-3/4 2xl:h-4/5 flex flex-col justify-center mx-auto px-5'>
+        <div className='bg-white rounded-lg shadow-md border border-black text-black pt-2 px-5 md:pl-20 md:pr-20 w-full'>
             <div>
             {
             // <div className='flex flex-col md:flex-row md:justify-between'>
@@ -40,12 +40,12 @@ function Carousel() {
                 }
             </div>
             {
-                <hr></hr>
+                //<hr></hr>
             }
         </div>
-        <div className='w-full flex flex-col items-center justify-center mt-3 2xl:mt-10 bg-white'>
+        <div className='w-full flex flex-col items-center justify-center mt-3 2xl:mt-10 bg-white py-5 rounded-lg  shadow-md border border-black'>
             <h2 className='text-black text-xl 2xl:text-2xl font-bold mb-2 md:mb-0'>Featured Projects</h2>
-            <div className='flex justify-center items-center py-2 2xl:pt-5 2xl:pb-10 w-full h-80 md:h-72 2xl:h-120'>
+            <div className='flex justify-center md:justify-between items-center py-2 2xl:pt-5 2xl:pb-10 w-full h-80 md:h-72 2xl:h-120'>
                 <button className='hidden md:block text-gray-400 hover:text-gray-700 p-10 z-30'><FaAngleLeft size={32} onClick={onLeftClick} /></button>
                 <div className='flex flex-col md:flex-row text-black justify-around w-4/5 z-30' onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
                     <img src={`/portfolio/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-full md:w-3/5 2xl:w-3/5 h-auto transform transition-transform duration-300 hover:scale-105 shadow-md z-50 rounded-lg" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
