@@ -56,9 +56,9 @@ function Home() {
                     <Carousel/>
                 </div>
             </div>
-            <div className={`fixed top-5 right-20 z-10 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/portfolio/assets/home-foreground.png)` }}  ref={midgroundRef}>
+            <div className={`fixed top-5 left-20 z-10 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/portfolio/assets/home-foreground.png)` }}  ref={midgroundRef}>
             </div>
-            <div className={`fixed top-0 left-5 z-20 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/portfolio/assets/home-foreground.png)` }}  ref={foregroundRef}>
+            <div className={`fixed top-0 left-0 z-20 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/portfolio/assets/home-foreground.png)` }}  ref={foregroundRef}>
             </div>
         </div>
     );

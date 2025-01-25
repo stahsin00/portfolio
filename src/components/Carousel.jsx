@@ -47,9 +47,9 @@ function Carousel() {
             <h2 className='text-black text-2xl 2xl:text-2xl mb-2 md:mb-0 font-vt323'>Featured Projects</h2>
             <div className='flex justify-center md:justify-between items-center py-2 2xl:pt-5 2xl:pb-10 w-full h-80 md:h-72 2xl:h-120'>
                 <button className='hidden md:block p-10 z-40 cursor-auto'><FaAngleLeft size={32} onClick={onLeftClick} className='cursor-pointer text-gray-600 hover:text-gray-900' /></button>
-                <div className='flex flex-col md:flex-row text-black justify-around w-4/5 z-40' onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                    <img src={`/portfolio/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-full md:w-3/5 2xl:w-3/5 h-auto transform transition-transform duration-300 hover:scale-105 shadow-md z-50 rounded-lg" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
-                    <div className='w-full md:w-1/4'>
+                <div className='flex flex-col md:flex-row text-black justify-around w-4/5' onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+                    <img src={`/portfolio/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-full md:w-3/5 2xl:w-3/5 h-auto shadow-md rounded-lg" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
+                    <div className='w-full md:w-1/4 z-40'>
                         <h3 className="text-xl 2xl:text-3xl mt-2 md:mt-0 mb-2 2xl:mb-5 font-vt323">{featuredProjects[curIndex].name}</h3>
                         <hr className='p-1 2xl:p-2'></hr>
                         <div className="text-xs 2xl:text-xl font-bold mb-1 text-gray-600">{featuredProjects[curIndex].techStack.join(', ')}</div>
