@@ -34,7 +34,7 @@ function Carousel() {
             {
             // <div className='flex flex-col md:flex-row md:justify-between'>
             }
-                <h1 className='text-black text-lg md:text-4xl 2xl:text-5xl font-vt323 flex items-center mb-2 justify-center md:justify-start'><img src="/portfolio/sunflower.ico" alt="sunflower" className='h-8 md:h-10 2xl:h-11 w-auto mr-2' style={{imageRendering: 'pixelated'}}></img> Welcome to my <span className='text-yellow-400 ml-2 md:ml-3'>Portfolio</span></h1>
+                <h1 className='text-black text-lg md:text-4xl 2xl:text-5xl font-vt323 flex items-center mb-2 justify-center md:justify-start'><img src="/portfolio/sunflower.ico" alt="sunflower" className='h-8 md:h-10 2xl:h-11 w-auto mr-2' style={{imageRendering: 'pixelated'}}></img> Welcome to my <span className='text-yellow-500 ml-2 md:ml-3'>Portfolio</span></h1>
                 {
                     //<div className='text-lg 2xl:text-xl h-7 2xl:h-10 w-52 2xl:w-64 p-2 mt-2 mb-2 2xl:mb-5 bg-black text-teal-400 rounded-lg font-vt323 border-b border-r border-gray-400 flex items-center'><Typewriter text='Hello! :) '/></div>
                 }
@@ -43,7 +43,7 @@ function Carousel() {
                 //<hr></hr>
             }
         </div>
-        <div className='z-10 w-full flex flex-col items-center justify-center mt-3 2xl:mt-10 bg-white/60 py-5 rounded-lg shadow-[0_0_6px_2px_#14b8a6] border border-teal-500'>
+        <div className='w-full flex flex-col items-center justify-center mt-3 2xl:mt-10 bg-white/60 py-5 rounded-lg shadow-[0_0_6px_2px_#14b8a6] border border-teal-500'>
             <h2 className='text-black text-2xl 2xl:text-2xl mb-2 md:mb-0 font-vt323'>Featured Projects</h2>
             <div className='flex justify-center md:justify-between items-center py-2 2xl:pt-5 2xl:pb-10 w-full h-80 md:h-72 2xl:h-120'>
                 <button className='hidden md:block p-10 z-40 cursor-auto'><FaAngleLeft size={32} onClick={onLeftClick} className='cursor-pointer text-gray-600 hover:text-gray-900' /></button>
