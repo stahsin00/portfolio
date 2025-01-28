@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://stahsin00.github.io/portfolio",
+  "homepage": "https://shushamatahsin.com",
   "type": "module",
   "scripts": {
     "predeploy": "vite build",
