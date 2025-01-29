@@ -25,7 +25,7 @@ function Projects() {
     return (
         <div>
             <div className='flex justify-around md:h-screen w-full py-20'> 
-                <img src='/portfolio/assets/room-day.png' alt='pixel art of a room' className='w-2/3 h-auto px-2 md:h-full md:w-auto' style={{ imageRendering: 'pixelated' }} />
+                <img src='/assets/room-day.png' alt='pixel art of a room' className='w-2/3 h-auto px-2 md:h-full md:w-auto' style={{ imageRendering: 'pixelated' }} />
                 <SearchCard selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes} targetRef={targetRef}/>
             </div>
             <div className='w-full px-2 md:px-20'>
