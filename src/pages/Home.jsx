@@ -50,25 +50,25 @@ function Home() {
         }
     }
 
-    const bgImage = day ? '/portfolio/assets/home-day.png' : '/portfolio/assets/home-night.png';
+    const bgImage = day ? '/assets/home-day.png' : '/assets/home-night.png';
 
     // className='w-full h-full flex justify-center items-center text-center text-7xl text-black [text-shadow:_-2px_-2px_0_#fff,_2px_-2px_0_#fff,_-2px_2px_0_#fff,_2px_2px_0_#fff]'
     // <Typewriter text='Hello! :)'/>
 
     return (
         <div onMouseMove={handleMouseMove}>
-            <div className={`fixed top-0 right-10 z-0 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/portfolio/assets/home-background.png)` }} ref={backgroundRef}>
+            <div className={`fixed top-0 right-10 z-0 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/assets/home-background.png)` }} ref={backgroundRef}>
             </div>
-            <img src='/portfolio/assets/cloud.png' alt='cloud' className='z-40 h-screen fixed bottom-20 hidden lg:block' style={{imageRendering: 'pixelated'}}  ref={cloudRef}></img>
+            <img src='/assets/cloud.png' alt='cloud' className='z-40 h-screen fixed bottom-20 hidden lg:block' style={{imageRendering: 'pixelated'}}  ref={cloudRef}></img>
             <div className={`h-screen w-full bg-cover bg-[position:18%_center] z-30 lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated]`} style={{ backgroundImage: `url(${bgImage})` }}>
                 {/* <button className='fixed top-5 right-5 bg-black hover:bg-teal-700 text-white text-lg font-bold py-2 px-4 pl-6 pr-6 rounded-full border-2 border-white border-solid' onClick={handleClick}>TEMP</button> */}
                 <div className='w-full h-full flex justify-center items-center'>
                     <Carousel/>
                 </div>
             </div>
-            <div className={`fixed top-5 left-20 z-10 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/portfolio/assets/home-foreground.png)` }}  ref={midgroundRef}>
+            <div className={`fixed top-5 left-20 z-10 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/assets/home-foreground.png)` }}  ref={midgroundRef}>
             </div>
-            <div className={`fixed top-0 left-0 z-20 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/portfolio/assets/home-foreground.png)` }}  ref={foregroundRef}>
+            <div className={`fixed top-0 left-0 z-20 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/assets/home-foreground.png)` }}  ref={foregroundRef}>
             </div>
             <div className="fixed inset-0 pointer-events-none z-40">
                 <div className="w-full h-full bg-[length:100%_4px] bg-repeat opacity-50" style={{ backgroundImage: 'linear-gradient(transparent 50%, rgba(0,0,255,0.15) 50%)',}}/>

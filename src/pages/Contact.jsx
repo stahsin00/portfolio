@@ -96,7 +96,7 @@ function Contact() {
                 </div>
             </form>
             <div className='w-full h-full p-10 hidden lg:flex flex-col justify-center items-center'>
-                <img src='/portfolio/assets/girl-on-desk.png' alt='pixel art of a girl at a desk' className='h-auto w-full px-20' style={{ imageRendering: 'pixelated' }} />
+                <img src='/assets/girl-on-desk.png' alt='pixel art of a girl at a desk' className='h-auto w-full px-20' style={{ imageRendering: 'pixelated' }} />
             </div>
         </div>
     )
