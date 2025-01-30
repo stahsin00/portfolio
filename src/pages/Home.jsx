@@ -59,7 +59,7 @@ function Home() {
         <div onMouseMove={handleMouseMove}>
             <div className={`fixed top-0 right-10 z-0 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/assets/home-background.png)` }} ref={backgroundRef}>
             </div>
-            <img src='/assets/cloud.png' alt='cloud' className='z-40 h-screen fixed bottom-20 hidden lg:block' style={{imageRendering: 'pixelated'}}  ref={cloudRef}></img>
+            {/* <img src='/assets/cloud.png' alt='cloud' className='z-40 h-screen fixed bottom-20 hidden lg:block' style={{imageRendering: 'pixelated'}}  ref={cloudRef}></img> */}
             <div className={`h-screen w-full bg-cover bg-[position:18%_center] z-30 lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated]`} style={{ backgroundImage: `url(${bgImage})` }}>
                 {/* <button className='fixed top-5 right-5 bg-black hover:bg-teal-700 text-white text-lg font-bold py-2 px-4 pl-6 pr-6 rounded-full border-2 border-white border-solid' onClick={handleClick}>TEMP</button> */}
                 <div className='w-full h-full flex justify-center items-center'>
