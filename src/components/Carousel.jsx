@@ -29,14 +29,11 @@ function Carousel() {
 
   return (
     <div className='w-11/12 md:w-4/5 h-full md:h-3/4 2xl:h-4/5 flex flex-col justify-center mx-auto px-5 relative'>
-        <div className='w-fit bg-teal-400/70 shadow-[0_0_6px_2px_#14b8a6] border-4 border-teal-400 text-black pt-2 px-5 pr-20 [clip-path:polygon(0_0,85%_0,100%_100%,0%_100%)]'>
-            <h1 className='text-black text-lg md:text-4xl 2xl:text-5xl font-vt323 flex items-center mb-2 md:justify-start'> Welcome to my Portfolio</h1>
-        </div>
         <div className='bg-black/20 w-full flex flex-col items-center justify-center mt-2 pb-1 md:pb-5 shadow-[0_0_6px_2px_#14b8a6] border-4 border-teal-400'>
             <h2 className='text-black text-2xl 2xl:text-2xl font-vt323 shadow-[0_0_6px_2px_#14b8a6] bg-teal-400/70 border-b-4 border-teal-400 px-10 md:px-20 [clip-path:polygon(0_0,100%_0,90%_100%,10%_100%)] md:[clip-path:polygon(0_0,100%_0,85%_100%,15%_100%)] mb-1 mt-1 md:mb-0 md:mt-2'>Featured Projects</h2>
             <div className='flex justify-center md:justify-between items-center py-2 2xl:pt-5 2xl:pb-10 w-full h-96 md:h-72 2xl:h-120'>
-                <button className='hidden md:block p-1 py-20 cursor-auto shadow-[0_0_6px_2px_#14b8a6] border-r-4 border-teal-400 bg-teal-400/80 [clip-path:polygon(0_0%,100%_20%,100%_80%,0%_100%)]'>
-                    <FaAngleLeft size={32} onClick={onLeftClick} className='cursor-pointer text-gray-600 hover:text-gray-900 z-40' />
+                <button onClick={onLeftClick} className='cursor-pointer hidden md:block p-1 py-20 shadow-[0_0_6px_2px_#14b8a6] bg-teal-400/80 hover:bg-teal-500/80 [clip-path:polygon(0_0%,100%_20%,100%_80%,0%_100%)]'>
+                    <FaAngleLeft size={32} className='text-black z-40' />
                 </button>
                 <div className='flex flex-col md:flex-row text-black justify-around w-4/5' onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
                     <img src={`/assets/${featuredProjects[curIndex].image}`} alt={featuredProjects[curIndex].name} className="w-full md:w-3/5 2xl:w-3/5 h-auto shadow-md md:rounded-lg" style={{imageRendering: featuredProjects[curIndex].pixelated ? 'pixelated' : 'auto'}} />
@@ -58,15 +55,14 @@ function Carousel() {
                             </div>
                     </div>
                 </div>
-                <button className='hidden md:block p-1 py-20 cursor-auto shadow-[0_0_6px_2px_#14b8a6] border-l-4 border-teal-400 bg-teal-400/80 [clip-path:polygon(0_20%,100%_0,100%_100%,0%_80%)]'>
-                    <FaAngleRight size={32} onClick={onRightClick} className='cursor-pointer text-gray-600 hover:text-gray-900 z-40' />
+                <button onClick={onRightClick} className='cursor-pointer hidden md:block p-1 py-20 shadow-[0_0_6px_2px_#14b8a6] bg-teal-400/80 hover:bg-teal-500/80 [clip-path:polygon(0_20%,100%_0,100%_100%,0%_80%)]'>
+                    <FaAngleRight size={32} className='text-black z-40' />
                 </button>
             </div>
-            <div className='flex gap-5 md:gap-3'>
+            <div className='flex gap-2 md:gap-0'>
                 {
                     featuredProjects.map((project, index) => (
-                        <button className={`${index == curIndex ? 'text-teal-400' : 'text-gray-600'} hover:text-teal-500 text-xl md:text-sm 2xl:text-lg z-40`} onClick={() => {setCurIndex(index)}}>
-                            <FaCircle/>
+                        <button className={`${index == curIndex ? 'bg-teal-400' : 'bg-gray-600'} hover:bg-teal-500 text-xl z-40 w-10 h-5 [clip-path:polygon(25%_0,100%_0,75%_100%,0%_100%)]`} onClick={() => {setCurIndex(index)}}>
                         </button>
                     ))
                 }
