@@ -152,11 +152,43 @@ function LinkButton({ href, icon: Icon, label }) {
   );
 }
 
+// Breakpoints
+const BREAKPOINTS = {
+  sm: 480,
+  md: 720,
+  lg: 960,
+};
+
+function useContainerWidth(ref) {
+  const [width, setWidth] = useState(1100);
+  useEffect(() => {
+    if (!ref.current) return;
+    const obs = new ResizeObserver(entries => {
+      setWidth(Math.round(entries[0].contentRect.width));
+    });
+    obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return width;
+}
+
 function Carousel() {
   const [curIndex, setCurIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [dims, setDims] = useState({ width: 1100, height: 560 });
   const containerRef = useRef(null);
+  const outerRef = useRef(null);
+
+  const containerWidth = useContainerWidth(outerRef);
+
+  // Determine layout mode from container width
+  const isMobile = containerWidth < BREAKPOINTS.sm;
+  const isTablet = containerWidth >= BREAKPOINTS.sm && containerWidth < BREAKPOINTS.md;
+  const isSmallDesktop = containerWidth >= BREAKPOINTS.md && containerWidth < BREAKPOINTS.lg;
+  const isLargeDesktop = containerWidth >= BREAKPOINTS.lg;
+
+  // Stack vertically on mobile + tablet; side-by-side on larger screens
+  const isStacked = isMobile || isTablet;
 
   const featuredProjects = projects.filter(p => p.featured === 'true');
   const project = featuredProjects[curIndex];
@@ -182,8 +214,34 @@ function Carousel() {
 
   const hasLinks = project.github || project.link || project.itch;
 
+  // Responsive font sizes
+  const titleFontSize = isMobile ? '15px' : isTablet ? '17px' : '20px';
+  const descFontSize = isMobile ? '13px' : '15px';
+  const headerFontSize = isMobile ? '11px' : '14px';
+  const headerLetterSpacing = isMobile ? '2px' : '4px';
+
+  // Nav button padding
+  const btnPadding = isMobile ? '10px 20px' : '14px 36px';
+  const btnFontSize = isMobile ? '13px' : '16px';
+
+  // Body padding
+  const bodyPadding = isMobile
+    ? '12px 14px 8px'
+    : isTablet
+    ? '14px 20px 10px'
+    : '16px 28px 12px';
+
+  // Image max height
+  const imageMaxHeight = isMobile ? '200px' : isTablet ? '280px' : '420px';
+
+  // Gap in side-by-side mode
+  const sideBySideGap = isSmallDesktop ? 20 : 28;
+
   return (
-    <div style={{ width: '92%', margin: '0 auto', padding: '0 24px' }}>
+    <div
+      ref={outerRef}
+      style={{ width: '92%', margin: '0 auto', padding: isMobile ? '0 8px' : '0 24px' }}
+    >
       <div
         ref={containerRef}
         style={{
@@ -197,20 +255,48 @@ function Carousel() {
         <PanelSVGFrame width={dims.width} height={dims.height} />
 
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', padding: '8px 56px', height: '42px' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '14px', color: CYAN, letterSpacing: '4px', opacity: 0.9 }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: isMobile ? '8px 36px' : '8px 56px',
+          height: '42px',
+        }}>
+          <span style={{
+            fontFamily: 'monospace',
+            fontSize: headerFontSize,
+            color: CYAN,
+            letterSpacing: headerLetterSpacing,
+            opacity: 0.9,
+          }}>
             FEATURED PROJECTS
           </span>
-          <span style={{ marginLeft: 'auto', fontFamily: 'monospace', fontSize: '11px', color: CYAN, opacity: 0.45, letterSpacing: '2px' }}>
-            SYS.PORT//4821
-          </span>
+          {!isMobile && (
+            <span style={{
+              marginLeft: 'auto',
+              fontFamily: 'monospace',
+              fontSize: '11px',
+              color: CYAN,
+              opacity: 0.45,
+              letterSpacing: '2px',
+            }}>
+              SYS.PORT//4821
+            </span>
+          )}
         </div>
 
         {/* Body */}
-        <div style={{ display: 'flex', padding: '16px 28px 12px', gap: 0 }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: isStacked ? 'column' : 'row',
+          padding: bodyPadding,
+          gap: isStacked ? '14px' : 0,
+        }}>
 
           {/* Screenshot */}
-          <div style={{ flex: '0 0 54%', position: 'relative' }}>
+          <div style={{
+            flex: isStacked ? 'none' : '0 0 54%',
+            position: 'relative',
+          }}>
             <div style={{
               border: `1.5px solid ${CYAN}`,
               opacity: 0.85,
@@ -225,7 +311,7 @@ function Carousel() {
                   width: '100%',
                   display: 'block',
                   imageRendering: project.pixelated ? 'pixelated' : 'auto',
-                  maxHeight: '420px',
+                  maxHeight: imageMaxHeight,
                   objectFit: 'cover',
                 }}
               />
@@ -239,20 +325,30 @@ function Carousel() {
             ))}
           </div>
 
-          {/* Divider */}
-          <div style={{ width: '1px', background: CYAN, opacity: 0.2, margin: '0 28px', flexShrink: 0 }} />
+          {/* Divider — horizontal line in stacked, vertical in side-by-side */}
+          {isStacked ? (
+            <div style={{ height: '1px', background: CYAN, opacity: 0.2, margin: '0 4px' }} />
+          ) : (
+            <div style={{ width: '1px', background: CYAN, opacity: 0.2, margin: `0 ${sideBySideGap}px`, flexShrink: 0 }} />
+          )}
 
           {/* Info panel */}
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '16px', minWidth: 0 }}>
+          <div style={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: isMobile ? '10px' : '16px',
+            minWidth: 0,
+          }}>
 
             {/* Title block */}
             <div style={{
               background: 'rgba(0, 229, 212, 0.08)',
               border: `1px solid rgba(0,229,212,0.5)`,
               clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)',
-              padding: '14px 20px',
+              padding: isMobile ? '10px 14px' : '14px 20px',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
                 <div style={{
                   width: 10, height: 10, borderRadius: '50%',
                   background: CYAN,
@@ -261,7 +357,7 @@ function Carousel() {
                 }} />
                 <span style={{
                   fontFamily: 'monospace',
-                  fontSize: '20px',
+                  fontSize: titleFontSize,
                   fontWeight: 'bold',
                   color: CYAN,
                   letterSpacing: '2px',
@@ -273,13 +369,13 @@ function Carousel() {
                   {project.name.toUpperCase()}
                 </span>
               </div>
-              <div style={{ height: '0.5px', background: CYAN, opacity: 0.4, marginBottom: '12px' }} />
+              <div style={{ height: '0.5px', background: CYAN, opacity: 0.4, marginBottom: '10px' }} />
               {/* Tech tags */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                 {project.techStack.map(tech => (
                   <span key={tech} style={{
                     fontFamily: 'monospace',
-                    fontSize: '11px',
+                    fontSize: isMobile ? '10px' : '11px',
                     color: CYAN,
                     background: 'rgba(0,229,212,0.12)',
                     border: `0.5px solid rgba(0,229,212,0.4)`,
@@ -294,12 +390,19 @@ function Carousel() {
 
             {/* Description */}
             <div>
-              <div style={{ fontFamily: 'monospace', fontSize: '11px', color: '#8ee8df', letterSpacing: '1px', marginBottom: '8px', opacity: 0.8 }}>
+              <div style={{
+                fontFamily: 'monospace',
+                fontSize: '11px',
+                color: '#8ee8df',
+                letterSpacing: '1px',
+                marginBottom: '8px',
+                opacity: 0.8,
+              }}>
                 // PROJECT DESCRIPTION
               </div>
               <p style={{
                 fontFamily: 'sans-serif',
-                fontSize: '15px',
+                fontSize: descFontSize,
                 color: '#c8eae8',
                 lineHeight: '1.7',
                 margin: 0,
@@ -311,8 +414,15 @@ function Carousel() {
             {/* Links — dynamic */}
             {hasLinks && (
               <div>
-                <div style={{ height: '0.5px', background: CYAN, opacity: 0.15, marginBottom: '12px' }} />
-                <div style={{ fontFamily: 'monospace', fontSize: '11px', color: '#8ee8df', letterSpacing: '1px', marginBottom: '12px', opacity: 0.8 }}>
+                <div style={{ height: '0.5px', background: CYAN, opacity: 0.15, marginBottom: '10px' }} />
+                <div style={{
+                  fontFamily: 'monospace',
+                  fontSize: '11px',
+                  color: '#8ee8df',
+                  letterSpacing: '1px',
+                  marginBottom: '10px',
+                  opacity: 0.8,
+                }}>
                   // LINKS
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
@@ -330,10 +440,33 @@ function Carousel() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '24px',
-          padding: '14px 28px 22px',
+          gap: isMobile ? '12px' : '24px',
+          padding: isMobile ? '10px 14px 16px' : '14px 28px 22px',
         }}>
-          <HUDButton onClick={onLeftClick}>‹ PREV</HUDButton>
+          <button
+            onClick={onLeftClick}
+            style={{
+              position: 'relative',
+              background: 'rgba(0,229,212,0.08)',
+              border: 'none',
+              padding: btnPadding,
+              cursor: 'pointer',
+              clipPath: 'polygon(14px 0%, 100% 0%, calc(100% - 14px) 100%, 0% 100%)',
+              color: CYAN,
+              fontFamily: 'monospace',
+              fontSize: btnFontSize,
+              letterSpacing: '2px',
+              transition: 'background 0.2s',
+              outline: 'none',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,229,212,0.15)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(0,229,212,0.08)')}
+          >
+            <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} viewBox="0 0 100 40" preserveAspectRatio="none">
+              <polygon points="10,0 100,0 90,40 0,40" fill="none" stroke={CYAN} strokeWidth="1.5" />
+            </svg>
+            <span style={{ position: 'relative', zIndex: 1 }}>‹ PREV</span>
+          </button>
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
@@ -345,14 +478,16 @@ function Carousel() {
                 >
                   {i === curIndex ? (
                     <div style={{
-                      width: '28px', height: '9px',
+                      width: isMobile ? '20px' : '28px',
+                      height: isMobile ? '7px' : '9px',
                       background: CYAN,
                       borderRadius: '4.5px',
                       boxShadow: `0 0 8px ${CYAN}`,
                     }} />
                   ) : (
                     <div style={{
-                      width: '9px', height: '7px',
+                      width: isMobile ? '7px' : '9px',
+                      height: isMobile ? '5px' : '7px',
                       background: CYAN,
                       borderRadius: '3px',
                       opacity: 0.25,
@@ -361,18 +496,43 @@ function Carousel() {
                 </button>
               ))}
             </div>
-            <span style={{
-              fontFamily: 'monospace',
-              fontSize: '11px',
-              color: CYAN,
-              opacity: 0.4,
-              letterSpacing: '2px',
-            }}>
-              {String(curIndex + 1).padStart(2, '0')} / {String(featuredProjects.length).padStart(2, '0')}
-            </span>
+            {!isMobile && (
+              <span style={{
+                fontFamily: 'monospace',
+                fontSize: '11px',
+                color: CYAN,
+                opacity: 0.4,
+                letterSpacing: '2px',
+              }}>
+                {String(curIndex + 1).padStart(2, '0')} / {String(featuredProjects.length).padStart(2, '0')}
+              </span>
+            )}
           </div>
 
-          <HUDButton onClick={onRightClick}>NEXT ›</HUDButton>
+          <button
+            onClick={onRightClick}
+            style={{
+              position: 'relative',
+              background: 'rgba(0,229,212,0.08)',
+              border: 'none',
+              padding: btnPadding,
+              cursor: 'pointer',
+              clipPath: 'polygon(14px 0%, 100% 0%, calc(100% - 14px) 100%, 0% 100%)',
+              color: CYAN,
+              fontFamily: 'monospace',
+              fontSize: btnFontSize,
+              letterSpacing: '2px',
+              transition: 'background 0.2s',
+              outline: 'none',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,229,212,0.15)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(0,229,212,0.08)')}
+          >
+            <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} viewBox="0 0 100 40" preserveAspectRatio="none">
+              <polygon points="10,0 100,0 90,40 0,40" fill="none" stroke={CYAN} strokeWidth="1.5" />
+            </svg>
+            <span style={{ position: 'relative', zIndex: 1 }}>NEXT ›</span>
+          </button>
         </div>
       </div>
     </div>

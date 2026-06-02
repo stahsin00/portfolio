@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
+import SocialButton from './SocialButton';
 
 const CYAN = '#00e5d4';
 
@@ -71,32 +74,63 @@ function Nav() {
 
   return (
     <>
+      <div 
+        id="mobile-nav-overlay"
+        className="fixed md:hidden"
+        style={{
+          top: '0px',
+          left: '0px',
+          width: '100vw',
+          height: '100dvh',
+          background: 'rgba(0,20,18,0.55)',
+          zIndex: 49,
+        }}>
+      </div>
       {/* Mobile toggle */}
       <button
         onClick={() => setOpen(!open)}
         style={{
           position: 'fixed',
-          top: '16px',
-          left: '16px',
+          top: '0px',
+          left: '0px',
           zIndex: 50,
           background: open ? 'rgba(0,229,212,0.2)' : 'rgba(0,20,18,0.6)',
-          border: `1.5px solid ${CYAN}`,
-          clipPath: 'polygon(0 0, 75% 0, 100% 100%, 25% 100%)',
-          width: '52px',
-          height: '44px',
+          borderBottom: `1.5px solid #00e5d4`,
+          clipPath: 'polygon(0 0, 100% 0, 75% 100%, 0% 100%)',
+          width: '100px',
+          height: '33px',
           cursor: 'pointer',
           display: 'none',
           alignItems: 'center',
           justifyContent: 'center',
-          filter: `drop-shadow(0 0 4px ${CYAN}88)`,
+          filter: `drop-shadow(0 0 4px #00e5d488)`,
         }}
         className="md-hidden-toggle"
       >
         {/* Hamburger lines styled as HUD tick marks */}
-        <svg width="22" height="16" viewBox="0 0 22 16">
-          <line x1="0" y1="2" x2="22" y2="2" stroke={CYAN} strokeWidth="2" />
-          <line x1="4" y1="8" x2="22" y2="8" stroke={CYAN} strokeWidth="2" opacity="0.7" />
-          <line x1="8" y1="14" x2="22" y2="14" stroke={CYAN} strokeWidth="2" opacity="0.4" />
+        <div
+          style={{
+            position: 'absolute',
+            left: '22px',
+            fontFamily: 'monospace',
+            fontSize: '11px',
+            color: '#00e5d4',
+            letterSpacing: '2px',
+            opacity: 0.9,
+          }}
+        >
+          MENU
+        </div>
+        <svg width="100" height="33" style={{ position: 'absolute', right: '0px' }}>
+          <line
+            x1="100"
+            y1="0"
+            x2="0"
+            y2="122"
+            stroke="#00e5d4"
+            strokeWidth="3.5"
+            filter="url(#hud-glow)"
+          />
         </svg>
       </button>
 
@@ -126,20 +160,33 @@ function Nav() {
           </svg>
         </div> */}
 
-        <div style={{ display: 'flex', flexDirection: 'row', marginLeft: '-20px' }}>
+        <div className="flex-col md:flex-row" style={{ display: 'flex', marginLeft: '-20px' }}>
           <NavLink to="/home" onClick={() => setOpen(false)}>Home</NavLink>
-          <div style={{ marginLeft: '-28px' }}>
+          <div className="ml-0 md:ml-{-28px} mt-3 md:mt-0">
             <NavLink to="/projects" onClick={() => setOpen(false)}>Projects</NavLink>
           </div>
         </div>
       </nav>
 
+      <div 
+        id="socials"
+        className="fixed bottom-[16px] left-[16px] block md:hidden"
+        style={{ zIndex: 51, }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '4px', }}>
+            <SocialButton href="https://www.linkedin.com/in/shushama-tahsin-2b8124255/"><FaLinkedin size={22} /></SocialButton>
+            <SocialButton href="https://github.com/stahsin00"><FaGithub size={22} /></SocialButton>
+        </div>
+      </div>
+
       <style>{`
         @media (max-width: 768px) {
           .md-hidden-toggle { display: flex !important; }
           nav { display: ${open ? 'flex' : 'none'} !important; flex-direction: column !important; top: 68px !important; gap: 8px !important; }
+          #socials { display: ${open ? 'block' : 'none'} !important; }
           nav > div { margin-left: 0 !important; }
           nav > div > div { margin-left: 0 !important; }
+          #mobile-nav-overlay { display: ${open ? 'block' : 'none'} !important;
         }
       `}</style>
     </>

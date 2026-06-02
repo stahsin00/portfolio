@@ -9,12 +9,12 @@ import './App.css';
 import Chat from './components/Chat';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import Disclaimer from './components/Disclaimer';
 
 function App() {
 
   return (
     <>
-      
       <HashRouter>
         <Nav />
         <Routes>
@@ -26,6 +26,7 @@ function App() {
         </Routes>
       </HashRouter>
       <Socials />
+      <Disclaimer />
       {/* <Chat /> */}
     </>
   )
