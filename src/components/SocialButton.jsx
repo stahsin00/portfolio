@@ -69,39 +69,4 @@ function SocialButton({ href, children }) {
   );
 }
 
-function Socials() {
-  return (
-    <div style={{
-      position: 'fixed',
-      bottom: '24px',
-      left: '24px',
-      zIndex: 50,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '-8px',
-    }}>
-      {/* HUD bracket accent */}
-      {/* <div style={{ position: 'absolute', top: '-10px', left: '0', pointerEvents: 'none' }}>
-        <svg width="14" height="14" viewBox="0 0 14 14">
-          <polyline points="0,14 0,0 14,0" fill="none" stroke={CYAN} strokeWidth="2" style={{ filter: `drop-shadow(0 0 3px ${CYAN})` }} />
-        </svg>
-      </div> */}
-
-      <div className="hidden md:flex" style={{ flexDirection: 'column', gap: '-8px', marginTop: '4px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '4px' }}>
-            <SocialButton href="https://www.linkedin.com/in/shushama-tahsin-2b8124255/"><FaLinkedin size={22} /></SocialButton>
-            <SocialButton href="https://github.com/stahsin00"><FaGithub size={22} /></SocialButton>
-        </div>
-      </div>
-
-      {/* Bottom bracket */}
-      {/* <div style={{ position: 'absolute', bottom: '-10px', right: '0', pointerEvents: 'none' }}>
-        <svg width="14" height="14" viewBox="0 0 14 14">
-          <polyline points="0,0 14,0 14,14" fill="none" stroke={CYAN} strokeWidth="2" style={{ filter: `drop-shadow(0 0 3px ${CYAN})` }} />
-        </svg>
-      </div> */}
-    </div>
-  );
-}
-
-export default Socials;
+export default SocialButton;

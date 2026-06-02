@@ -66,14 +66,14 @@ function Home() {
                     <Carousel/>
                 </div>
             </div>
-            <div className={`fixed top-5 left-20 z-10 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/assets/home-foreground.png)` }}  ref={midgroundRef}>
+            <div className={`fixed md:top-5 left-20 z-10 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/assets/home-foreground.png)` }}  ref={midgroundRef}>
             </div>
-            <div className={`fixed top-0 left-0 z-20 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/assets/home-foreground.png)` }}  ref={foregroundRef}>
+            <div className={`fixed top-20 md:top-0 left-10 md:left-0 z-20 h-screen w-full bg-cover bg-[position:67%_center] lg:bg-center bg-no-repeat bg-fixed [image-rendering:pixelated] transform transition-transform duration-100 ease-out pointer-events-none`} style={{ backgroundImage: `url(/assets/home-foreground.png)` }}  ref={foregroundRef}>
             </div>
             <div className="fixed inset-0 pointer-events-none z-40">
                 <div className="w-full h-full bg-[length:100%_4px] bg-repeat opacity-50" style={{ backgroundImage: 'linear-gradient(transparent 50%, rgba(0,0,255,0.15) 50%)',}}/>
 
-                <div className="fixed inset-0 opacity-10 bg-repeat" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1580243117731-a108c2953e2c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,}}/>
+                {/* <div className="fixed inset-0 opacity-10 bg-repeat" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1580243117731-a108c2953e2c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,}}/> */}
 
                 {/* TODO: Chromatic Aberration */}
             </div>
