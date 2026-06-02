@@ -73,7 +73,7 @@ function Home() {
             <div className="fixed inset-0 pointer-events-none z-40">
                 <div className="w-full h-full bg-[length:100%_4px] bg-repeat opacity-50" style={{ backgroundImage: 'linear-gradient(transparent 50%, rgba(0,0,255,0.15) 50%)',}}/>
 
-                <div className="fixed inset-0 opacity-10 bg-repeat" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1580243117731-a108c2953e2c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,}}/>
+                {/* <div className="fixed inset-0 opacity-10 bg-repeat" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1580243117731-a108c2953e2c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,}}/> */}
 
                 {/* TODO: Chromatic Aberration */}
             </div>
