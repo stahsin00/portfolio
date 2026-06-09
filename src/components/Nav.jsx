@@ -144,7 +144,6 @@ function Nav() {
           display: 'flex',
           flexDirection: 'row',
           gap: '-28px',
-          marginLeft: '-28px',
         }}
       >
         {/* Corner accent */}
