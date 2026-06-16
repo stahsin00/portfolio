@@ -15,7 +15,7 @@ function NavLink({ to, children, onClick }) {
       <div
         style={{
           position: 'relative',
-          padding: '10px 32px 10px 24px',
+          padding: '10px 28px',
           background: active ? 'rgba(0,125,115,0.55)' : 'rgba(0,20,18,0.55)',
           clipPath: 'polygon(0 0, 80% 0, 100% 100%, 20% 100%)',
           cursor: 'pointer',
