@@ -4,9 +4,11 @@ import SearchCard from '../components/SearchCard';
 import projects from '../data/projects.json';
 import ImageModal from '../components/ImageModal';
 
+const DEFAULT_FILTERS = ['Complete', 'In Progress'];
+
 function Projects() {
     const [filteredProjects, setFilteredProjects] = useState(projects);
-    const [selectedTypes, setSelectedTypes] = useState([]);
+    const [selectedTypes, setSelectedTypes] = useState(DEFAULT_FILTERS);
     const [selectedImage, setSelectedImage] = useState(null);
     const targetRef = useRef(null);
 
