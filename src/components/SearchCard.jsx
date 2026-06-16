@@ -11,8 +11,16 @@ function useResizeDims() {
   const [dims, setDims] = useState({ width: 0, height: 0 });
   useEffect(() => {
     const obs = new ResizeObserver(entries => {
-      const { width, height } = entries[0].contentRect;
-      setDims({ width: Math.round(width), height: Math.round(height) });
+      const entry = entries[0];
+      let width, height;
+      if (entry.borderBoxSize && entry.borderBoxSize.length > 0) {
+        width = Math.round(entry.borderBoxSize[0].inlineSize);
+        height = Math.round(entry.borderBoxSize[0].blockSize);
+      } else {
+        width = Math.round(entry.contentRect.width);
+        height = Math.round(entry.contentRect.height);
+      }
+      setDims({ width, height });
     });
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
