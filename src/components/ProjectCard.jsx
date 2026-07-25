@@ -191,7 +191,7 @@ function ProjectCard({ project, selectImage }) {
         onClick={() => selectImage()}
       >
         <img
-          src={`/assets/${project.image}`}
+          src={project.image.startsWith('http') ? project.image : `/assets/${project.image}`}
           alt={project.name}
           style={{
             width: '100%',

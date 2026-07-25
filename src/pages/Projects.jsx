@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from '../components/ProjectCard';
 import SearchCard from '../components/SearchCard';
-import projects from '../data/projects.json';
+import { loadProjects } from '../services/projects';
 import ImageModal from '../components/ImageModal';
 import ParticleBackground from '../components/ParticleBackground';
 
@@ -9,12 +9,28 @@ const DEFAULT_FILTERS = ['Complete', 'In Progress'];
 
 function Projects() {
     const [day, setDay] = useState(false);
-    const [filteredProjects, setFilteredProjects] = useState(projects);
+
+    const [projects, setProjects] = useState([]);
+    const [filteredProjects, setFilteredProjects] = useState([]);
+
     const [selectedTypes, setSelectedTypes] = useState(DEFAULT_FILTERS);
     const [selectedImage, setSelectedImage] = useState(null);
     const targetRef = useRef(null);
 
     const roomImage = day ? '/assets/room-day.png' : '/assets/room-night.png';
+
+    useEffect(() => {
+        async function fetchProjects() {
+            const data = await loadProjects();
+
+            console.log('Loaded projects:', data);
+            
+            setProjects(data);
+            setFilteredProjects(data);
+        }
+
+        fetchProjects();
+    }, []);
 
     useEffect(() => {
         const tempProjects = selectedTypes.length > 0 ? projects.filter(project => {

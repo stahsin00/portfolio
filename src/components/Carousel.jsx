@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import projects from '../data/projects.json';
+import { loadProjects } from '../services/projects';
 import { FaGithub, FaExternalLinkAlt, FaItchIo } from 'react-icons/fa';
 
 const CYAN = '#00e5d4';
@@ -178,6 +178,19 @@ function Carousel() {
   const [dims, setDims] = useState({ width: 1100, height: 560 });
   const containerRef = useRef(null);
   const outerRef = useRef(null);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    async function fetchProjects() {
+        const data = await loadProjects();
+
+        console.log('Loaded projects:', data);
+        
+        setProjects(data);
+    }
+
+    fetchProjects();
+}, []);
 
   const containerWidth = useContainerWidth(outerRef);
 
@@ -212,7 +225,7 @@ function Carousel() {
   const onRightClick = () => setCurIndex(prev => (prev + 1) % featuredProjects.length);
   const onLeftClick = () => setCurIndex(prev => (prev - 1 + featuredProjects.length) % featuredProjects.length);
 
-  const hasLinks = project.github || project.link || project.itch;
+  const hasLinks = project && (project.github || project.link || project.itch);
 
   // Responsive font sizes
   const titleFontSize = isMobile ? '15px' : isTablet ? '17px' : '20px';
@@ -236,6 +249,14 @@ function Carousel() {
 
   // Gap in side-by-side mode
   const sideBySideGap = isSmallDesktop ? 20 : 28;
+
+  if (featuredProjects.length === 0) {
+    return (
+        <div style={{ textAlign: 'center', padding: '3rem' }}>
+            No featured projects yet.
+        </div>
+    );
+  }
 
   return (
     <div
